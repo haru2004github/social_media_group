@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
     $('.postApprove').change(function(){
         $postApprove =  $(this).val();
@@ -10,7 +12,7 @@ $(document).ready(function(){
                 "postApprove"     : $postApprove,
                 "postId"  : $postId
             },
-            url   : "http://127.0.0.1:8000/notification/change/post_approve",
+            url   : "/notification/change/post_approve",
             dataType : 'json',
 
         })

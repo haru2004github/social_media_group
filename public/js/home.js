@@ -136,36 +136,34 @@ $(document).ready(function(){
     let pressTimer;
 
     $('.reactBtn').on("touchstart", function (e) {
-
-      // Start the press timer
-      pressTimer = setTimeout(function(){
+    // Start the press timer
+    pressTimer = setTimeout(function(){
         $parentNodeForReaction = $(this).parents('.parentForReaction')
         $parentNodeForReaction.find('.reactSelectionBox').removeClass('opacity-0 pointer-events-none')
-      }, 500);
+    }, 300);
     });
 
     $('.reactBtn').on("touchend", function () {
-      // Clear the press timer when touch ends
-      clearTimeout(pressTimer);
-      $parentNodeForReaction = $(this).parents('.parentForReaction')
-      $parentNodeForReaction.find('.reactSelectionBox').addClass('opacity-0 pointer-events-none')
+    // Clear the press timer when touch ends
+    clearTimeout(pressTimer);
+    $parentNodeForReaction = $(this).parents('.parentForReaction')
+    // $parentNodeForReaction.find('.reactSelectionBox').addClass('opacity-0 pointer-events-none')
     });
 
     $('.reactBtn').on("contextmenu", function (e) {
-      // Prevent the default context menu from showing on desktop
-      e.preventDefault();
-      // Trigger the context menu function on right-click (desktop)
-      $parentNodeForReaction = $(this).parents('.parentForReaction')
-      $parentNodeForReaction.find('.reactSelectionBox').removeClass('opacity-0 pointer-events-none')
+    // Prevent the default context menu from showing on desktop
+    e.preventDefault();
+    // Trigger the context menu function on right-click (desktop)
+    $parentNodeForReaction = $(this).parents('.parentForReaction')
+    $parentNodeForReaction.find('.reactSelectionBox').removeClass('opacity-0 pointer-events-none')
     });
 
     $('.reactBtn').on("mousedown", function (e) {
-      // Check if the right mouse button is pressed (desktop)
-      if (e.which === 3) {
+    // Check if the right mouse button is pressed (desktop)
+    if (e.which === 3) {
         $parentNodeForReaction = $(this).parents('.parentForReaction')
-        e.preventDefault();
         $parentNodeForReaction.find('.reactSelectionBox').addClass('opacity-0 pointer-events-none')
-      }
+    }
     });
 
         // mouseleave from react selection box to close react box
@@ -199,7 +197,7 @@ $(document).ready(function(){
                 "userId"    : $userId,
                 "postId"    : $postId,
             },
-            url   : "http://127.0.0.1:8000/reaction/create",
+            url   : "/reaction/create",
             dataType : 'json',
             success  : function(response){
                 if(response.status = true){
@@ -223,13 +221,12 @@ $(document).ready(function(){
                 "userId"    : $userId,
                 "postId"    : $postId,
             },
-            url   : "http://127.0.0.1:8000/reaction/cancel",
+            url   : "/reaction/cancel",
             dataType : 'json',
             success  : function(response){
                 if(response.status = true){
                     localStorage.setItem('scrollTo','post'+response.scrollTo)
                     location.reload()
-
                 }
             }
         })
@@ -245,7 +242,7 @@ $(document).ready(function(){
               data  :  {
                   "postId"    : $postId,
               },
-              url   : "http://127.0.0.1:8000/post/viewCount",
+              url   : "/post/viewCount",
               dataType : 'json',
           })
     })
@@ -253,11 +250,9 @@ $(document).ready(function(){
     //add save post
     $('.savePostBtn').click(function(){
         $parentNode = $(this).parents('.postOption')
-
         $postId = $parentNode.find('#postId').val()
         $postOwnerId = $parentNode.find('#postOwnerId').val()
         $savePostBtn = $parentNode.find('.savePostBtn')
-
 
         $.ajax({
             type : 'get',
@@ -265,7 +260,7 @@ $(document).ready(function(){
                 'postId' : $postId,
                 'postOwnerId' : $postOwnerId
             },
-            url  : "http://127.0.0.1:8000/save_post/add",
+            url  : "/save_post/add",
             dataType : 'json',
             success : function(response){
                 if(response.status == 'saved'){
@@ -292,7 +287,7 @@ $(document).ready(function(){
               data  :  {
                   "postId"    : $postId,
               },
-              url   : "http://127.0.0.1:8000/post/viewCount",
+              url   : "/post/viewCount",
               dataType : 'json',
 
           })

@@ -6,7 +6,7 @@
 <div class="flex items-center">
     <div class="flex items-center">
         <svg class="w-8 h-8 2xl:w-9 2xl:h-9 hidden md:block" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M402 168c-2.93 40.67-33.1 72-66 72s-63.12-31.32-66-72c-3-42.31 26.37-72 66-72s69 30.46 66 72Z"/><path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" d="M336 304c-65.17 0-127.84 32.37-143.54 95.41c-2.08 8.34 3.15 16.59 11.72 16.59h263.65c8.57 0 13.77-8.25 11.72-16.59C463.85 335.36 401.18 304 336 304Z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M200 185.94c-2.34 32.48-26.72 58.06-53 58.06s-50.7-25.57-53-58.06C91.61 152.15 115.34 128 147 128s55.39 24.77 53 57.94Z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M206 306c-18.05-8.27-37.93-11.45-59-11.45c-52 0-102.1 25.85-114.65 76.2c-1.65 6.66 2.53 13.25 9.37 13.25H154"/></svg>
-        <span class="ms-1 md:ms-2 mt-1 text-md md:text-xl">Admins' <span class="hidden md:inline">Lists</span></span>
+        <span class="ms-1 md:ms-2 mt-1 text-md md:text-xl">Admins<span class="hidden md:inline">' Lists</span></span>
     </div>
 </div>
 @endsection
@@ -17,7 +17,7 @@
 <article  class="md:px-5 lg:px-0 w-full md:w-[70%] md:mx-auto mt-10 md:mt-0">
 
     <!-- grid and row btns and search bar  -->
-    <div class="max-w-[900px] md:mx-auto flex justify-between gap-x-2 px-5 md:px-0">
+    <div class="max-w-[900px] md:mx-auto flex justify-between gap-x-2 px-3 md:px-0">
         <form action="{{ route('admin#listPage') }}" method="get" class="flex items-center gap-x-2">
             <input autocomplete="off" name="key" value="{{ request('key') }}" list="admin_lists" class="border dark:bg-[#27282F] dark:text-slate-300 dark:border-slate-700 focus:outline-none border-blue-300/50 px-3 lg:px-5 py-2 md:py-1 2xl:py-2 text-slate-700 bg-slate-50 shadow-md rounded-lg md:rounded-xl  dark:placeholder:text-slate-100 text-xs md:text-sm lg:text-md" type="search" placeholder="Search...">
             <datalist id="admin_lists" class="w-full">
@@ -40,7 +40,7 @@
     </div>
 
     @if (request('key'))
-    <div class="px-5 md:px-0 mt-5 2xl:mt-10 max-w-[900px] mx-auto">
+    <div class="px-3 md:px-0 mt-5 2xl:mt-10 max-w-[900px] mx-auto">
         <h1 class="text-slate-700 dark:text-slate-300 text-lg 2xl:text-xl">Search : {{ request('key') }}</h1>
     </div>
     @endif
@@ -49,22 +49,22 @@
     <div class="mt-5 2xl:mt-10 max-w-[900px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700 mx-auto overflow-hidden  rounded-2xl shadow-md ">
 
         <!-- user list row style -->
-        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[650px] md:h-[500px] max-h-[700px] 2xl:h-[700px] md:max-h-none overflow-y-scroll p-3 2xl:p-10 flex flex-col gap-y-3 md:gap-y-5">
+        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[500px] max-h-[700px] 2xl:h-[700px] md:max-h-none overflow-y-scroll p-2 md:p-3 2xl:p-10 flex flex-col gap-y-3 md:gap-y-5">
 
             @if (count($admins) == 0 )
-            <div class="flex justify-center items-center h-full text-red-500 text-2xl ">
+            <div class="flex justify-center items-center h-full text-red-500 text-lg lg:text-2xl">
                 There is no admin yet!
             </div>
             @else
                 @foreach ($admins as $admin)
-                    <div class="shadow-md dark:shadow-slate-900 p-3 border border-blue-300/50 dark:border-slate-700 rounded-xl justify-between flex gap-x-3 items-center">
+                    <div class="shadow-md dark:shadow-slate-900 px-2 py-1 md:p-3 border border-blue-300/50 dark:border-slate-700 rounded-xl justify-between flex gap-x-3 items-center">
                         <div class="flex gap-x-1 md:gap-x-2 items-center">
                             <div class="">
                                 <a @if (Auth::user()->id == $admin->id)
                                 href="{{ route('account#profilePage',$admin->id) }}"
                                 @else
                                     href="{{ route('member#accountProfilePage',$admin->id) }}"
-                                @endif class="flex justify-center items-center 2xl:w-16 w-12 h-12 cursor-pointer 2xl:h-16 overflow-hidden rounded-full shadow-xl">
+                                @endif class="flex justify-center items-center w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 cursor-pointer overflow-hidden rounded-full shadow-xl">
                                     @if($admin->image !== null)
                                     <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$admin->image) }}" alt="">
                                     @else
@@ -101,7 +101,7 @@
                                         <svg class="w-4 h-4 md:w-5 md:h-5 2xl:w-6 2xl:h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path stroke-linejoin="round" d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="7" r="3"/></g></svg>
                                     </a>
                                 @else
-                                    <a  href="{{ route('member#accountProfilePage',$admin->id) }}"  class=" text-white bg-blue-400 hover:bg-blue-500 duration-300 lg:mr-3 text-xs md:text-sm px-3 py-2 rounded-lg flex justify-center items-center shadow-md" title="Profile">
+                                    <a  href="{{ route('member#accountProfilePage',$admin->id) }}"  class=" text-white bg-blue-400 hover:bg-blue-500 duration-300 lg:mr-3 text-xs md:text-sm px-2 md:px-3 py-1 md:py-2 rounded-lg flex justify-center items-center shadow-md" title="Profile">
                                         View Your Profile
                                     </a>
                                 @endif
@@ -255,7 +255,7 @@
                     "roleChange" : $roleChange,
                     "userId"    : $userId
                 },
-                url   : "http://127.0.0.1:8000/member/roleChange",
+                url   : "/member/roleChange",
                 dataType : 'json',
                 success  : function(response){
                     if(response.status = true){

@@ -4,7 +4,7 @@
 
 @section('current_page')
 <div class="flex items-center">
-    <svg class="w-8 h-8 2xl:w-11 2xl:h-11" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path stroke="currentColor" stroke-width="1.5" d="M21 12a8.958 8.958 0 0 1-1.526 5.016A8.991 8.991 0 0 1 12 21a8.991 8.991 0 0 1-7.474-3.984A9 9 0 1 1 21 12Z"/><path fill="currentColor" d="M13.25 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0 0 14.75 9h-1.5ZM12 10.25c-.69 0-1.25-.56-1.25-1.25h-1.5A2.75 2.75 0 0 0 12 11.75v-1.5ZM10.75 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0 0 9.25 9h1.5ZM12 7.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 12 6.25v1.5ZM5.166 17.856l-.719-.214l-.117.392l.267.31l.569-.488Zm13.668 0l.57.489l.266-.31l-.117-.393l-.719.214ZM9 15.75h6v-1.5H9v1.5Zm0-1.5a4.752 4.752 0 0 0-4.553 3.392l1.438.428A3.252 3.252 0 0 1 9 15.75v-1.5Zm3 6a8.23 8.23 0 0 1-6.265-2.882l-1.138.977A9.73 9.73 0 0 0 12 21.75v-1.5Zm3-4.5c1.47 0 2.715.978 3.115 2.32l1.438-.428A4.752 4.752 0 0 0 15 14.25v1.5Zm3.265 1.618A8.23 8.23 0 0 1 12 20.25v1.5a9.73 9.73 0 0 0 7.403-3.405l-1.138-.977Z"/></g></svg>
+    <svg class="w-8 h-8 2xl:w-11 2xl:h-11 hidden md:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path stroke="currentColor" stroke-width="1.5" d="M21 12a8.958 8.958 0 0 1-1.526 5.016A8.991 8.991 0 0 1 12 21a8.991 8.991 0 0 1-7.474-3.984A9 9 0 1 1 21 12Z"/><path fill="currentColor" d="M13.25 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0 0 14.75 9h-1.5ZM12 10.25c-.69 0-1.25-.56-1.25-1.25h-1.5A2.75 2.75 0 0 0 12 11.75v-1.5ZM10.75 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0 0 9.25 9h1.5ZM12 7.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 12 6.25v1.5ZM5.166 17.856l-.719-.214l-.117.392l.267.31l.569-.488Zm13.668 0l.57.489l.266-.31l-.117-.393l-.719.214ZM9 15.75h6v-1.5H9v1.5Zm0-1.5a4.752 4.752 0 0 0-4.553 3.392l1.438.428A3.252 3.252 0 0 1 9 15.75v-1.5Zm3 6a8.23 8.23 0 0 1-6.265-2.882l-1.138.977A9.73 9.73 0 0 0 12 21.75v-1.5Zm3-4.5c1.47 0 2.715.978 3.115 2.32l1.438-.428A4.752 4.752 0 0 0 15 14.25v1.5Zm3.265 1.618A8.23 8.23 0 0 1 12 20.25v1.5a9.73 9.73 0 0 0 7.403-3.405l-1.138-.977Z"/></g></svg>
     <span class="ms-2 mt-1 text-md md:text-xl">Profile</span>
 </div>
 @endsection
@@ -136,11 +136,11 @@
 
         </div>
 
-        <div class="overflow-hidden min-h-[150px]  2xl:h-[400px] 2xl:min-h-[300px] 2xl:max-h-[400px] object-center max-h-[250px] dark:bg-slate-800 bg-slate-100 relative shadow-sm">
+        <div class="overflow-hidden w-full h-full md:w-auto min-h-[150px] 2xl:h-[400px] 2xl:min-h-[300px] 2xl:max-h-[400px] object-center max-h-[250px] dark:bg-slate-800 bg-slate-100 relative shadow-sm">
             @if (Auth::user()->cover_image !== null)
-            <img class="object-center object-cover h-full object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.Auth::user()->cover_image) }}" alt="">
+            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.Auth::user()->cover_image) }}" alt="">
             @else
-            <img class="object-center object-cover h-full object-center object-cover h-full w-full brightness-80 z-0" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
+            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
             @endif
             <button onclick="toggleDisplayForCover()" class="absolute bg-blue-500/90 text-white hover:bg-blue-500 duration-300 bottom-5 right-5 px-3 2xl:px-5 py-1 md:py-2 text-xs md:text-sm border shadow-lg rounded-lg flex items-center gap-x-1">
                 @if (Auth::user()->cover_image == null)
@@ -164,15 +164,15 @@
 </article>
 
 {{-- layer  --}}
-<article id="layerOne" class="bg-white/10 backdrop-blur-lg fixed top-0 left-0 object-center object-cover h-full w-full h-screen z-50 opacity-0 pointer-events-none duration-500">
+<article id="layerOne" class="bg-white/10 backdrop-blur-lg fixed top-0 left-0 object-center object-cover h-full w-full z-50 opacity-0 pointer-events-none duration-500">
 </article>
-<article id="layerTwo" class="bg-white/10 backdrop-blur-lg fixed top-0 left-0 object-center object-cover h-full w-full h-screen z-50 opacity-0 pointer-events-none duration-500">
+<article id="layerTwo" class="bg-white/10 backdrop-blur-lg fixed top-0 left-0 object-center object-cover h-full w-full z-50 opacity-0 pointer-events-none duration-500">
 </article>
-<article id="layerThree" class="bg-white/10 backdrop-blur-lg fixed top-0 left-0 object-center object-cover h-full w-full h-screen z-50 opacity-0 pointer-events-none duration-500">
+<article id="layerThree" class="bg-white/10 backdrop-blur-lg fixed top-0 left-0 object-center object-cover h-full w-full z-50 opacity-0 pointer-events-none duration-500">
 </article>
 
 {{-- edit cover_image modal  --}}
-<article id="coverPhotoModal" class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[380px] md:w-[400px] p-5 py-8 dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500">
+<article id="coverPhotoModal" class=" w-full fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] md: md:w-[400px] p-5 py-8 dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500">
     <form action="{{ route('account#changeCoverPhoto',Auth::user()->id) }}" method="Post" enctype="multipart/form-data">
         @csrf
         <div class="">
@@ -226,7 +226,7 @@
 </article>
 
 {{-- edit profile_image modal  --}}
-<article id="profileImageModal" class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[380px] md:w-[400px] p-5 py-8 dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500">
+<article id="profileImageModal" class=" w-full fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] md: md:w-[400px] p-5 py-8 dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500">
     <form action="{{ route('account#changeProfileImage',Auth::user()->id) }}" method="Post" enctype="multipart/form-data">
         @csrf
         <div class="">
@@ -282,7 +282,7 @@
 </article>
 
 {{-- edit account detail modal  --}}
-<article id="accountDetailModal" class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[380px] md:w-[700px] p-5 md:p-10  dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500">
+<article id="accountDetailModal" class=" w-full fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] md: md:w-[700px] p-5 md:p-10  dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500">
     <form action="{{ route('account#update',Auth::user()->id) }}" method="Post">
         @csrf
         <article class="flex justify-between items-center">
@@ -291,7 +291,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5.72 5.72a.75.75 0 0 1 1.06 0L12 10.94l5.22-5.22a.749.749 0 0 1 1.275.326a.749.749 0 0 1-.215.734L13.06 12l5.22 5.22a.749.749 0 0 1-.326 1.275a.749.749 0 0 1-.734-.215L12 13.06l-5.22 5.22a.751.751 0 0 1-1.042-.018a.751.751 0 0 1-.018-1.042L10.94 12L5.72 6.78a.75.75 0 0 1 0-1.06Z"/></svg>
             </button>
         </article>
-        <article class="grid grid-cols-2 md:min-w-[600px] mt-5 gap-x-5 md:gap-x-10">
+        <article class="grid grid-cols-2 w-full md:min-w-[600px] mt-5 gap-x-5 md:gap-x-10">
             <div class="">
                 <div class="">
                     <label class="text-slate-600 dark:text-slate-300" for="name">Name</label><br>

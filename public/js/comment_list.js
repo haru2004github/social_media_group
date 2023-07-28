@@ -23,7 +23,7 @@ $(document).ready(function(){
                "userId"    : $userId,
                "postId"    : $postId,
            },
-           url   : "http://127.0.0.1:8000/reaction/create",
+           url   : "/reaction/create",
            dataType : 'json',
            success  : function(response){
                if(response.status = true){
@@ -46,7 +46,7 @@ $(document).ready(function(){
                "userId"    : $userId,
                "postId"    : $postId,
            },
-           url   : "http://127.0.0.1:8000/reaction/cancel",
+           url   : "/reaction/cancel",
            dataType : 'json',
            success  : function(response){
                if(response.status = true){

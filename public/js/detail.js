@@ -52,7 +52,6 @@ $(document).ready(function(){
     // Check if the right mouse button is pressed (desktop)
     if (e.which === 3) {
         $parentNodeForReaction = $(this).parents('.parentForReaction')
-        // e.preventDefault();
         $parentNodeForReaction.find('.reactSelectionBox').addClass('opacity-0 pointer-events-none')
     }
     });
@@ -74,7 +73,7 @@ $(document).ready(function(){
                 'postId' : $postId,
                 'postOwnerId' : $postOwnerId
             },
-            url  : "http://127.0.0.1:8000/save_post/add",
+            url  : "/save_post/add",
             dataType : 'json',
             success : function(response){
                 if(response.status == 'saved'){

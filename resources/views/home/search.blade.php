@@ -25,11 +25,11 @@
 
 @section('content')
 <!-- Content  -->
-<article  class="w-full md:w-[70%] md:mx-auto md:px-5 lg:px-0">
+<article  class="w-full md:h-auto md:w-[70%] md:mx-auto md:px-5 lg:px-0">
 
     <!-- grid and row btns and search bar  -->
-    <div class="mt-10 md:mt-0 max-w-[900px] md:mx-auto flex justify-between gap-x-2 px-5 md:px-0">
-        <form action="{{ route('admin#listPage') }}" method="get" class="flex items-center gap-x-2">
+    <div class="mt-10 md:mt-0 max-w-[900px] md:mx-auto flex justify-between gap-x-2 px-3 md:px-0">
+        <form action="{{ route('search#listPage') }}" method="get" class="flex items-center gap-x-2">
             <input autocomplete="off" name="key" value="{{ request('key') }}" list="admin_lists" class="border dark:bg-[#27282F] dark:text-slate-300 dark:border-slate-700 focus:outline-none border-blue-300/50 px-3 lg:px-5 py-2 md:py-1 2xl:py-2 text-slate-700 bg-slate-50 shadow-md rounded-lg md:rounded-xl  dark:placeholder:text-slate-100 text-xs md:text-sm lg:text-md" type="search" placeholder="Search...">
             <datalist id="admin_lists" class="w-full">
                 @foreach ($users as $user)
@@ -42,34 +42,30 @@
                 <svg class="w-5 h-5 2xl:w-<a 2xl:h-<a" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
             </button>
         </form>
-
     </div>
 
     @if (request('key'))
-    <div class="mt-5 lg:mt-0 max-w-[850px] mx-auto px-5 md:px-0">
+    <div class="mt-3 md:mt-5 lg:mt-0 max-w-[850px] mx-auto px-3 md:px-0">
         <h1 class="text-slate-700 dark:text-slate-300 text-md lg:text-xl">Search : {{ request('key') }}</h1>
     </div>
     @endif
 
     <!-- users List Section -->
-    <div class="mt-5 2xl:mt-10 max-w-[850px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden  rounded-2xl shadow-lg ">
-
-
+    <div class="mt-3 md:mt-5 2xl:mt-10 max-w-[850px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden rounded-2xl shadow-lg h-full md:h-auto">
         <!-- user list -->
-        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[650px] md:h-[500px] max-h-[700px] md:max-h-none
-        2xl:h-[700px] overflow-y-scroll p-3 md:p-5 2xl:p-10 flex flex-col gap-y-3 md:gap-y-5">
+        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[500px] max-h-[700px] md:max-h-none 2xl:h-[700px] overflow-y-scroll p-2 md:p-5 2xl:p-10 flex flex-col gap-y-3 md:gap-y-5">
 
             @if (count($users) == 0 )
-            <div class="flex justify-center items-center h-full text-red-500 text-2xl ">
+            <div class="flex justify-center items-center h-full text-red-500 text-lg lg:text-2xl ">
                 There is no user yet!
             </div>
             @else
             @foreach ($users as $user)
                 @if ($user->id != Auth::user()->id)
-                <div class="shadow-lg dark:shadow-slate-900 p-3 border border-blue-300/50 dark:border-slate-700 rounded-xl justify-between flex gap-x-3 items-center">
+                <div class="shadow-lg dark:shadow-slate-900 px-2 py-1 md:p-3 border border-blue-300/50 dark:border-slate-700 rounded-xl justify-between flex gap-x-3 items-center">
                     <div class="flex gap-x-1 md:gap-x-2 items-center">
                         <div class="">
-                            <div class="lg:w-14 lg:h-14 w-10 h-10 cursor-pointer overflow-hidden rounded-full shadow-xl">
+                            <div class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 cursor-pointer overflow-hidden rounded-full shadow-xl">
                                 @if($user->image !== null)
                                 <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$user->image) }}" alt="">
                                 @else
@@ -85,7 +81,7 @@
                             <h1 class="text-slate-700 ml-1 dark:text-slate-200 text-xs md:text-sm lg:text-md">
                                 {{ $user->name }}
                             </h1>
-                            <h2 class="text-slate-500 dark:text-slate-400 text-xs ml-1 text-xs lg:text-sm flex items-center gap-x-1 ">
+                            <h2 class="text-slate-500 dark:text-slate-400  ml-1 text-xs lg:text-sm flex items-center gap-x-1 ">
                                 <svg class="hidden md:inline text-red-400 w-4 h-4 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z"/></svg>
                                 {{ $user->address }}
                             </h2>
@@ -111,9 +107,6 @@
         </div>
         <!--  -->
         </div>
-
-
-
     </div>
 
 </article>
