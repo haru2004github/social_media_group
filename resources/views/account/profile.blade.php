@@ -50,7 +50,7 @@
                 </a>
             </div>
 
-            <div class="text-center mt-8">
+            <div class="text-center mt-3 md:mt-5 lg:mt-8">
                 <h1 class="text-md lg:text-2xl text-slate-600 dark:text-slate-300 font-bold flex justify-center items-center">
                     <span>
                         {{ Auth::user()->name }}
@@ -68,16 +68,16 @@
                 </h3>
 
             </div>
-            <div class="p-5 lg:p-10">
-                <h3 class="text-lg md:text-xl text-slate-700 dark:text-slate-300 ml-1 ">Description</h3>
-                <p class="mt-3 text-slate-700 dark:bg-[#1E1F23] dark:text-slate-400 text-md md:text-lg bg-[#f2f2f2] shadow-md border border-blue-500/50 rounded-2xl p-3 lg:p-5">
+            <div class="p-3 md:p-5 lg:p-10">
+                <h3 class=" text-md md:text-lg lg:text-xl text-slate-700 dark:text-slate-300 ml-1 ">Description</h3>
+                <p class="mt-2 md:mt-3 text-slate-700 dark:bg-[#1E1F23] dark:text-slate-400 text-md md:text-lg bg-[#f2f2f2] shadow-md border border-blue-500/50 rounded-2xl p-3 lg:p-5">
                     @if (Auth::user()->description == null)
                     There is no description!
                     @else
                     {{ Auth::user()->description }}
                     @endif
                 </p>
-                <div class="mt-8 md:mt-10 p-3 lg:p-10 grid md:grid-cols-2 items-center md:text-md text-sm shadow-md border border-blue-500/50 rounded-2xl ">
+                <div class="mt-5 md:mt-10 p-3 lg:p-10 grid md:grid-cols-2 items-center md:text-md text-sm shadow-md border border-blue-500/50 rounded-2xl ">
                     <div class="">
                         <!-- Email  -->
                         <div class="flex items-center gap-x-3">
@@ -124,7 +124,7 @@
 
                 </div>
 
-                <div class="mt-8 flex justify-end ">
+                <div class="mt-3 md:mt-8 flex justify-end ">
                     <button type="button" onclick="toggleDisplayForEdit()" class="flex items-center justify-center gap-x-1 bg-blue-500 hover:bg-blue-600 duration-300 text-white py-2 rounded-xl shadow-lg px-3 md:px-5">
                         <svg class="w-5 h-5 md:w-6 md:h-6 2xl:w-8 2xl:h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 19h1.4l8.625-8.625l-1.4-1.4L5 17.6V19ZM19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575t1.412.575l1.4 1.4q.575.575.6 1.388t-.55 1.387L19.3 8.925ZM4 21q-.425 0-.713-.288T3 20v-2.825q0-.2.075-.388t.225-.337l10.3-10.3l4.25 4.25l-10.3 10.3q-.15.15-.337.225T6.825 21H4ZM14.325 9.675l-.7-.7l1.4 1.4l-.7-.7Z"/></svg>
                         <span class="text-md md:text-lg 2xl:text-xl">
@@ -157,8 +157,6 @@
                 @endif
             </button>
         </div>
-
-
     </div>
 
 </article>

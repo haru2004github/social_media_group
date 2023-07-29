@@ -29,7 +29,7 @@
                 </div>
                 @error('category')
                 <div class="relative">
-                    <small class="absolute top-0 left-0 text-red-500">
+                    <small class="absolute top-0 left-0 text-red-500 text-xs md:text-sm">
                         {{ $message }}
                     </small>
                 </div>
@@ -64,24 +64,24 @@
     @endif
 
     <!-- Categories Section -->
-    <div class="mt-5 max-w-[1200px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden  rounded-2xl shadow-md ">
+    <div class="mt-7  max-w-[1200px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden  rounded-2xl shadow-md ">
 
 
         <!-- Action Categories section  -->
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg h-[650px] md:h-[500px] max-h-[700px] 2xl:h-[700px] md:max-h-none overflow-y-scroll">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg h-[500px] max-h-[700px] 2xl:h-[700px] md:max-h-none overflow-y-scroll">
             @if (count($categories) == null)
-                <div class="flex justify-center items-center h-full w-full text-slate-700 dark:text-slate-300 text-3xl">
+                <div class="flex justify-center items-center h-full w-full text-slate-700 dark:text-slate-300 text-lg lg:text-2xl">
                     There is no category!
                 </div>
             @else
                 <table class="w-full text-md text-left text-gray-500 dark:bg-[#1E1F23]">
-                    <thead class="text-sm lg:text-md 2xl:text-lg font-medium text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400">
+                    <thead class="text-xs md:text-sm lg:text-md 2xl:text-lg font-medium text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-4 py-3 2xl:px-6 2xl:py-4 font-medium">
                                 Id
                             </th>
                             <th scope="col" class="px-4 py-3 2xl:px-6 2xl:py-4 font-medium">
-                                Feeling Category
+                                <span class="hidden md:inline">Feeling</span> Category
                             </th>
                             <th scope="col" class="px-4 py-3 2xl:px-6 2xl:py-4 font-medium">
                                 Created _at
@@ -96,7 +96,7 @@
                     </thead>
 
 
-                    <tbody>
+                    <tbody class="text-xs md:text-sm lg:text-md 2xl:text-lg ">
                         @foreach ($categories as $category )
                         <form action="{{ route('feeling#editCategory',$category->id) }}" method="POST">
                             @csrf

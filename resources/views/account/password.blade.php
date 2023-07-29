@@ -4,7 +4,7 @@
 
 @section('current_page')
 <div class="flex items-center">
-    <svg class="w-6 h-6 2xl:w-11 2xl:h-11" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 22q-.825 0-1.413-.588T4 20V10q0-.825.588-1.413T6 8h1V6q0-2.075 1.463-3.538T12 1q2.075 0 3.538 1.463T17 6v2h1q.825 0 1.413.588T20 10v10q0 .825-.588 1.413T18 22H6Zm0-2h12V10H6v10Zm6-3q.825 0 1.413-.588T14 15q0-.825-.588-1.413T12 13q-.825 0-1.413.588T10 15q0 .825.588 1.413T12 17ZM9 8h6V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6v2ZM6 20V10v10Z"/></svg>
+    <svg class="w-6 h-6 2xl:w-11 2xl:h-11 hidden md:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 22q-.825 0-1.413-.588T4 20V10q0-.825.588-1.413T6 8h1V6q0-2.075 1.463-3.538T12 1q2.075 0 3.538 1.463T17 6v2h1q.825 0 1.413.588T20 10v10q0 .825-.588 1.413T18 22H6Zm0-2h12V10H6v10Zm6-3q.825 0 1.413-.588T14 15q0-.825-.588-1.413T12 13q-.825 0-1.413.588T10 15q0 .825.588 1.413T12 17ZM9 8h6V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6v2ZM6 20V10v10Z"/></svg>
     <span class="ms-2 mt-1 text-md md:text-xl">Password <span class="hidden md:inline">And Privacy</span></span>
 </div>
 @endsection
@@ -18,17 +18,17 @@
         <!-- Group chat section  -->
         <div class="max-w-6xl grid md:grid-cols-2 items-center border border-blue-300/20 rounded-2xl shadow-lg overflow-hidden">
             <div>
-                <div class="flex justify-center items-center p-5 md:p-10">
+                <div class="flex justify-center items-center p-5 md:p-10 drop-shadow-xl">
                     <img class="w-full" src="{{ asset('img/password.png') }}" alt="">
                 </div>
             </div>
             <!-- register section  -->
-            <div class="p-5 md:p-12 md:pl-10">
+            <div class="p-3 md:p-12 md:pl-10">
                 <h1 class="text-blue-500 text-xl md:text-3xl font-bold">Welcome Back!</h1>
                 <h3 class="text-slate-600 mt-3 dark:text-slate-300">
                     Are you sure to change your password!
                 </h3>
-                <form class="mt-10" action="{{ route('account#passwordChange') }}" method="POST">
+                <form class="mt-6 md:mt-10" action="{{ route('account#passwordChange') }}" method="POST">
                     @csrf
                     <div class="">
                         <label class="text-slate-600 dark:text-slate-300 text-sm md:text-md" for="oldPassword">Old Password</label><br>
@@ -42,13 +42,13 @@
                         </div>
                     </div>
                     @error('oldPassword')
-                    <div class="relative mt-5">
+                    <div class="relative mt-3 md:mt-5">
                         <small class="absolute bottom-0 left-0 text-red-500">
                             {{ $message }}
                         </small>
                     </div>
                     @enderror
-                    <div class="mt-5 md:mt-8">
+                    <div class="mt-3 md:mt-8">
                         <label class="text-slate-600 dark:text-slate-300 text-sm md:text-md" for="newPassword">New Password</label><br>
 
                         <div class="flex items-center gap-x-2">
@@ -60,13 +60,13 @@
                         </div>
                     </div>
                     @error('newPassword')
-                    <div class="relative mt-5">
+                    <div class="relative mt-3 md:mt-5">
                         <small class="absolute bottom-0 left-0 text-red-500">
                             {{ $message }}
                         </small>
                     </div>
                     @enderror
-                    <div class="mt-5 md:mt-8">
+                    <div class="mt-3 md:mt-8">
                         <label class="text-slate-600 dark:text-slate-300 text-sm md:text-md" for="confirmPassword">Confirm Password</label><br>
 
                         <div class="flex items-center gap-x-2">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     @error('confirmPassword')
-                    <div class="relative mt-5">
+                    <div class="relative mt-3 md:mt-5">
                         <small class="absolute bottom-0 left-0 text-red-500">
                             {{ $message }}
                         </small>

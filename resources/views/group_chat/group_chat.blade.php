@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div id="groupChatBackground" class="chat-container p-5 md:px-10 md:py-8 h-[600px] md:h-[500px] 2xl:h-[550px] overflow-y-scroll dark:bg-slate-900">
+            <div id="groupChatBackground" class="chat-container p-5 md:px-10 md:py-8 h-[500px] 2xl:h-[550px] overflow-y-scroll dark:bg-slate-900">
 
                 @if (count($groupChats) == 0)
                 <div class="flex justify-center items-center h-full text-slate-700 dark:text-slate-200 text-xl md:text-3xl">
@@ -67,7 +67,7 @@
 
                             {{-- for  only message --}}
                             @if ($groupChat->message !== null && $groupChat->image == null)
-                                <div id="" class="parentMessage flex flex-row-reverse mt-4 md:mt-6 2xl:mt-10">
+                                <div id="" class="parentMessage flex flex-row-reverse mt-2 md:mt-6">
                                     <div class="">
                                         <div class="flex justify-center">
                                             <a href="{{ route('account#profilePage',Auth::user()->id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
@@ -87,17 +87,16 @@
                                     <form class="flex items-center flex-row-reverse" action="{{ route('group_chat#editMyMessage',$groupChat->id) }}" method="POST">
                                         @csrf
                                         <div id="" class="messageContent">
-                                            <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-2 text-slate-700 rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg text-sm md:text-md">
-                                                <span class="messageText ml-3">
+                                            <p class="box-border bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-1 2xl:py-2 text-slate-700 rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-[250px] lg:max-w-lg text-sm md:text-md">
+                                                <span class="block messageText ml-3">
                                                     {{ $groupChat->message }}
-
                                                 </span>
-                                                <input required name="message" type="text" class="messageEdit w-[100px] hidden  rounded-lg shadow-inner border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-3 py-1 focus:outline-none text-sm md:text-md" value="{{ $groupChat->message }}">
+                                                <input required name="message" type="text" class="messageEdit w-[200px] lg:w-[400px] hidden  rounded-lg shadow-inner border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-3 py-1 focus:outline-none text-sm md:text-md" value="{{ $groupChat->message }}">
                                                 <input  name="user_id" type="hidden" value="{{ $groupChat->user_id }}">
 
                                             </p>
-                                            <div class="relative w-full">
-                                                <span class="absolute top-2 right-5 dark:text-slate-300 text-slate-700 text-sm">
+                                            <div class="">
+                                                <span class=" dark:text-slate-300 text-slate-700 text-xs">
                                                     {{ $groupChat->created_at->format('F d \a\t h:i A') }}
                                                 </span>
                                             </div>
@@ -125,7 +124,7 @@
 
                             {{-- for only image  --}}
                             @if ($groupChat->image !== null && $groupChat->message == null)
-                                <div id="" class="parentImage flex flex-row-reverse mt-4 md:mt-6 2xl:mt-10">
+                                <div id="" class="parentImage flex flex-row-reverse mt-2 md:mt-6">
                                     <div class="">
                                         <a href="{{ route('account#profilePage',Auth::user()->id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
                                             @if(Auth::user()->image == null)
@@ -149,8 +148,8 @@
                                             <div class="messageImage max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-tr-none shadow-md t-10 mr-2 mt-10">
                                                 <img id="previewEditImage" src="{{ asset('storage/'.$groupChat->image) }}" alt="">
                                             </div>
-                                            <div class="relative w-full">
-                                                <span class="absolute top-2 right-5 dark:text-slate-300 text-slate-700 text-sm">
+                                            <div class="">
+                                                <span class=" dark:text-slate-300 text-slate-700 text-xs">
                                                     {{ $groupChat->created_at->format('F d \a\t h:i A') }}
                                                 </span>
                                             </div>
@@ -190,7 +189,7 @@
 
                             {{-- for both message and image  --}}
                             @if ($groupChat->image !== null && $groupChat->message !== null)
-                                <div id="" class="parentImageAndMessage flex flex-row-reverse mt-4 md:mt-6 2xl:mt-10">
+                                <div id="" class="parentImageAndMessage flex flex-row-reverse mt-2 md:mt-6">
                                     <div class="">
                                         <a href="{{ route('account#profilePage',Auth::user()->id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
                                             @if(Auth::user()->image == null)
@@ -213,7 +212,7 @@
                                         <div class="">
                                             <div class="bothContentAndImageMessage bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
                                                 <h1 class="text-white bg-blue-500 p-3 text-sm md:text-md md:p-5 md:py-3 max-w-[250px] 2xl:max-w-[300px]">
-                                                    <span class="messageText">
+                                                    <span class="block messageText">
                                                         {{ $groupChat->message }}
                                                     </span>
                                                     <textarea required name="message" type="text" class="messageEdit text-sm md:text-md w-full hidden  rounded-lg shadow-inner border border-slate-30 bg-blue-600 px-3 py-1 focus:outline-none" value="" rows="2">{{ $groupChat->message }}</textarea>
@@ -226,8 +225,8 @@
                                                 </div>
                                             </div>
 
-                                            <div class="relative w-full">
-                                                <span class="absolute top-2 right-5 dark:text-slate-300 text-slate-700 text-sm">
+                                            <div class="">
+                                                <span class=" dark:text-slate-300 text-slate-700 text-xs">
                                                     {{ $groupChat->created_at->format('F d \a\t h:i A') }}
                                                 </span>
                                             </div>
@@ -273,7 +272,7 @@
 
                             {{-- for only message  --}}
                             @if ($groupChat->message !== null && $groupChat->image == null)
-                                <div id="" class="flex mt-4 md:mt-6 2xl:mt-10">
+                                <div id="" class="flex mt-2 md:mt-6">
                                     <div class="">
                                         <a href="{{ route('member#accountProfilePage',$groupChat->user_id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
                                             @if($groupChat->user_image == null)
@@ -291,11 +290,11 @@
                                         </a>
                                     </div>
                                     <div class="">
-                                        <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 text-slate-700 rounded-3xl rounded-tl-none shadow-md border text-sm md:text-md border-slate-300 mt-4 md:mt-6 2xl:mt-10 ml-2 max-w-lg">
+                                        <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 text-slate-700 rounded-3xl rounded-tl-none shadow-md border text-sm md:text-md border-slate-300 mt-2 md:mt-6 ml-2 max-w-lg">
                                             {{ $groupChat->message }}
                                         </p>
-                                        <div class="relative w-full">
-                                            <span class="absolute top-2 right-5 dark:text-slate-300 text-slate-700 text-sm">
+                                        <div class="">
+                                            <span class=" dark:text-slate-300 text-slate-700 text-xs">
                                                 {{ $groupChat->created_at->format('F d \a\t h:i A') }}
                                             </span>
                                         </div>
@@ -305,7 +304,7 @@
 
                             {{-- for only image  --}}
                             @if ($groupChat->image !== null && $groupChat->message == null)
-                                <div id="" class=" flex mt-4 md:mt-6 2xl:mt-10 ">
+                                <div id="" class="flex mt-2 md:mt-6 ">
                                     <div class="">
                                         <a href="{{ route('member#accountProfilePage',$groupChat->user_id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
                                             @if($groupChat->user_image == null)
@@ -326,8 +325,8 @@
                                         <div class= "max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl shadow-md mt-10">
                                             <img src="{{ asset('storage/'.$groupChat->image) }}" alt="">
                                         </div>
-                                        <div class="relative w-full">
-                                            <span class="absolute top-2 right-5 dark:text-slate-300 text-slate-700 text-sm">
+                                        <div class="">
+                                            <span class=" dark:text-slate-300 text-slate-700 text-xs">
                                                 {{ $groupChat->created_at->format('F d \a\t h:i A') }}
                                             </span>
                                         </div>
@@ -337,7 +336,7 @@
 
                             {{-- for both image and message  --}}
                             @if ($groupChat->image !== null && $groupChat->message !== null)
-                                <div id="" class=" flex mt-10">
+                                <div id="" class="flex mt-10">
                                     <div class="">
                                         <a href="{{ route('member#accountProfilePage',$groupChat->user_id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
                                             @if($groupChat->user_image == null)
@@ -366,8 +365,8 @@
                                             </div>
                                         </div>
 
-                                        <div class="relative w-full">
-                                            <span class="absolute top-2 right-5 dark:text-slate-300 text-slate-700 text-sm">
+                                        <div class="">
+                                            <span class=" dark:text-slate-300 text-slate-700 text-xs">
                                                 {{ $groupChat->created_at->format('F d \a\t h:i A') }}
                                             </span>
                                         </div>

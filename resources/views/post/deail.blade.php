@@ -15,11 +15,11 @@
 
     <!--Post Detail-->
     <div class=" max-w-[1000px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden  rounded-2xl shadow-lg ">
-        <div class="p-4 md:p-5 2xl:px-8 px-6">
+        <div class="p-4 md:p-5 2xl:px-8 md:px-6">
             <div class="h-[70vh] md:h-[65vh] overflow-y-scroll ">
                 <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-x-3 2xl:gap-x-5 2xl:mt-5">
-                        <a  href="{{ route('account#profilePage') }}" class="lg:w-14 lg:h-14 w-12 h-12 overflow-hidden rounded-full shadow-xl">
+                    <div class="flex items-center gap-x-2 2xl:gap-x-5 2xl:mt-5">
+                        <a  href="{{ route('account#profilePage') }}" class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-xl">
                             @if($post->user_image == null)
 
                             @if($post->user_gender == 'male')
@@ -58,7 +58,7 @@
                                 </a>
                                 @endif
                             </div>
-                            <h2 class="text-sm dark:text-slate-400">
+                            <h2 class="text-xs md:text-sm dark:text-slate-400">
                                 {{ $post->user_address }}
                             </h2>
                         </div>
@@ -68,7 +68,7 @@
                         <button class="showOption">
                             <svg class="text-slate-700 dark:text-slate-300 w-5 md:w-8 h-5 md:h-8" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M9 15.25a1.25 1.25 0 1 1 2.5 0a1.25 1.25 0 0 1-2.5 0Zm0-5a1.25 1.25 0 1 1 2.5 0a1.25 1.25 0 0 1-2.5 0Zm0-5a1.249 1.249 0 1 1 2.5 0a1.25 1.25 0 1 1-2.5 0Z"/></svg>
                         </button>
-                        <div class="postOption duration-300 opacity-0 pointer-events-none absolute top-[-10px] left-[-95px] md:-bottom-2 rounded-lg md:-left-[150px] bg-slate-800 flex justify-between items-center gap-x-2 p-2">
+                        <div class="postOption duration-300 opacity-0 pointer-events-none absolute top-[-10px] left-[-140px] md:-bottom-2 rounded-lg md:-left-[150px] bg-slate-800 flex justify-between items-center gap-x-2 p-2">
                             @if (Auth::user()->id == $post->user_id)
                             <form action="{{ route('post#editPage',$post->id) }}" title="Edit Post" class="editPostBtn w-8 h-8 md:w-10 md:h-10 flex justify-center items-center rounded-full bg-violet-500 hover:bg-violet-600 duration-300 text-white">
                                 <input type="hidden" name="userGender" value="{{ $post->user_gender }}">
@@ -76,7 +76,7 @@
                                 <input type="hidden" name="userName" value="{{ $post->user_name }}">
                                 <input type="hidden" name="userImage" value="{{ $post->user_image }}">
                                 <button type="submit">
-                                    <svg class="w-5 h-5 md:w-8 md:h-8"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024"><path fill="currentColor" fill-opacity=".15" d="M761.1 288.3L687.8 215L325.1 577.6l-15.6 89l88.9-15.7z"/><path fill="currentColor" d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3l-362.7 362.6l-88.9 15.7l15.6-89z"/></svg>
+                                    <svg class="w-4 h-4 md:w-8 md:h-8"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024"><path fill="currentColor" fill-opacity=".15" d="M761.1 288.3L687.8 215L325.1 577.6l-15.6 89l88.9-15.7z"/><path fill="currentColor" d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3l-362.7 362.6l-88.9 15.7l15.6-89z"/></svg>
                                 </button>
                             </form>
                             @endif
@@ -107,14 +107,14 @@
                     </div>
                 </div>
                 @if ($post->title)
-                <div class="text-slate-500 dark:text-slate-300 text-xl 2xl:mt-5 mt-3 flex justify-between items-center ">
+                <div class="text-slate-500 dark:text-slate-300 text-lg md:text-xl 2xl:mt-5 mt-3 flex justify-between items-center ">
                     <p>
                         {{ $post->title }}
                     </p>
                 </div>
                 @endif
                 @if ($post->description)
-                <div class="text-slate-400 text-md mt-2 flex justify-between items-center @if ($post->image == null) pb-5 @endif">
+                <div class="text-slate-400 text-sm md:text-md mt-2 flex justify-between items-center @if ($post->image == null) pb-3 md:pb-5 @endif">
                     <p>
                         {{ $post->description }}
                     </p>
@@ -131,24 +131,36 @@
                     <input id="userId" type="hidden" value="{{ Auth::user()->id }}">
 
                     <div id="reactBtn" class="relative w-full">
-                        <div  class="reactSelectionBox absolute w-[120%] opacity-0 pointer-events-none duration-500 top-[-40px] left-8 md:top-[-60px] md:left-12 bg-slate-50 shadow-md border dark:bg-slate-800 px-4 py-1 md:px-5 md:py-2 rounded-2xl flex items-center gap-x-1 md:gap-x-3 justify-center">
+                        <div  class="reactSelectionBox absolute w-[120%] z-50 opacity-0 pointer-events-none duration-500 top-[-40px] left-8 md:top-[-60px] md:left-12 bg-slate-50 shadow-md border dark:bg-slate-800 px-4 py-1 md:px-5 md:py-2 rounded-2xl flex items-center gap-x-1 md:gap-x-3 justify-center">
 
-                            <div id="like" class="react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/like.png') }}" alt="">
+                            <div class="">
+                                <div title="Like" id="like" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
+                                    <img src="{{ asset('img/like.png') }}" alt="">
+                                </div>
                             </div>
-                            <div id="love" class="react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/love.png') }}" alt="">
+
+                            <div class="">
+                                <div title="Love" id="love" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
+                                    <img src="{{ asset('img/love.png') }}" alt="">
+                                </div>
                             </div>
-                            <div id="think" class="react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/think.png') }}" alt="">
+                            <div class="">
+                                <div title="Think" id="think" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
+                                    <img src="{{ asset('img/think.png') }}" alt="">
+                                </div>
                             </div>
-                            <div id="sad" class="react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/sad.png') }}" alt="">
-                            </div>
-                            <div id="angry" class="react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/angry.png') }}" alt="">
+                            <div class="">
+                                <div title="Sad" id="sad" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
+                                    <img src="{{ asset('img/sad.png') }}" alt="">
+                                </div>
+                           </div>
+                            <div class="">
+                                <div title="Angry" id="angry" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
+                                    <img src="{{ asset('img/angry.png') }}" alt="">
+                                </div>
                             </div>
                         </div>
+
 
 
                         {{-- like --}}
@@ -158,7 +170,7 @@
                                 <span class="text-sm 2xl:text-lg hidden md:inline">
                                     Like
                                 </span>
-                                <div class="bg-blue-500 text-white 2xl:px-5 px-2 md:px-3 py-1 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
+                                <div class="md:bg-blue-500 text-white 2xl:px-5 md:px-3 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
                                     {{ $post->reaction_count }}
                                 </div>
                             </button>
@@ -214,7 +226,7 @@
                                     @default
 
                                 @endswitch
-                                <div class="bg-blue-500 text-white 2xl:px-5 px-2 md:px-3 py-1 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
+                                <div class="md:bg-blue-500 text-white 2xl:px-5 md:px-3 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
                                     {{ $post->reaction_count }}
                                 </div>
                             </button>
@@ -226,7 +238,7 @@
                         <span class="text-sm 2xl:text-lg hidden md:inline">
                             Comments
                         </span>
-                        <div class="bg-blue-500 text-white 2xl:px-5 px-2 md:px-3 py-1 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
+                        <div class="md:bg-blue-500 text-white 2xl:px-5 md:px-3 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
                             {{ $post->comment_count }}
                         </div>
                     </button>
@@ -235,7 +247,7 @@
                         <span class="text-sm 2xl:text-lg hidden md:inline">
                             View
                         </span>
-                        <div class="bg-blue-500 text-white 2xl:px-5 px-2 md:px-3 py-1 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
+                        <div class="md:bg-blue-500 text-white 2xl:px-5 md:px-3 text-xs md:text-sm shadow-lg rounded-lg md:rounded-xl">
                             {{ $post->view_count }}
                         </div>
                     </a>
@@ -356,7 +368,7 @@
                     <div class=" mt-5">
                         <div class=" text-slate-600">
                             <div class="flex items-center gap-x-3">
-                                <div class="w-10 md:w-12 h-10 md:h-12 overflow-hidden rounded-full shadow-xl">
+                                <div class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-xl">
                                     @if($comment->user_image == null)
 
                                     @if($comment->user_gender == 'male')
@@ -374,17 +386,23 @@
                                     <h1 class="text-slate-800 font-semibold dark:text-slate-200 text-sm md:text-md 2xl:text-lg">
                                         {{ $comment->user_name }}
                                     </h1>
-                                    <h2 class="2xl:text-md text-sm dark:text-slate-400">
+                                    <h2 class="2xl:text-md text-xs md:text-sm dark:text-slate-400">
                                         {{ $comment->user_address }}
                                     </h2>
                                 </div>
                             </div>
                             @if ($comment->comment !== null)
+
                             <div class="flex justify-start">
-                                <p class="mt-3 dark:text-slate-500 shadow-lg rounded-2xl p-3 py-2 bg-[#fafafa] dark:bg-[#17181c] border border-slate-300 dark:border-slate-700">
-                                    {{ $comment->comment }}
+                                <p class="mt-3  break-words bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:px-5 py-1 md:py-2 text-slate-700 rounded-xl lg:rounded-3xl  shadow-md border border-slate-300 mr-2 max-w-[200px] md:max-w-lg text-sm md:text-md">
+
+                                    <span>
+                                        {{ $comment->comment }}
+                                    </span>
+
                                 </p>
                             </div>
+
                             @endif
                             @if ($comment->image !== null)
                             <div class="max-w-[150px] 2xl:max-w-[300px] overflow-hidden rounded-lg shadow-lg mt-5">
@@ -402,12 +420,12 @@
 
 
 
-            <div class=" border-2 border-slate-300 dark:border-slate-700 my-5"></div>
+            <div class=" border-2 border-slate-300 dark:border-slate-700 my-3 md:my-5"></div>
             <!-- Write Comment Section  -->
             <form action="{{ route('comment#create') }}" method="Post" class="flex items-center gap-x-3" enctype="multipart/form-data">
                 @csrf
                 <div class="">
-                    <div class="w-10 md:w-12 h-10 md:h-12 overflow-hidden rounded-full shadow-xl">
+                    <div class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-xl">
                         @if(Auth::user()->image == null)
 
                         @if(Auth::user()->gender == 'male')
@@ -423,7 +441,7 @@
                     </div>
                 </div>
                 <div class="w-full">
-                    <input name="comment" class="comment focus:outline-none dark:text-slate-300 border border-slate-300 dark:bg-[#27282F] dark:border-slate-700 rounded-full px-3 md:px-5 p-2 w-full bg-slate-50 shadow-lg text-sm md:text-md" type="text" placeholder="Write a comment...">
+                    <input name="comment" class="comment focus:outline-none dark:text-slate-300 border border-slate-300 dark:bg-[#27282F] dark:border-slate-700 rounded-full px-3 md:px-5 py-1 md:p-2 w-full bg-slate-50 shadow-lg text-sm md:text-md" type="text" placeholder="Write a comment...">
                     <input type="hidden" name="post_id" value="{{ $post->id }}">
                 </div>
                 <div class="flex items-center gap-x-2">
@@ -439,7 +457,7 @@
                 </div>
             </form>
             <!-- Preview image modal  -->
-            <div class="mt-5">
+            <div class="mt-2 md:mt-5">
                 <div class="overflow-hidden w-[120px] rounded-xl shadow-lg">
                     <img class="w-full" id="previewCommentImage" src="" alt="">
                 </div>

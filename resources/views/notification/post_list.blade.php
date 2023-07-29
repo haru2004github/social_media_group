@@ -16,12 +16,12 @@
 <article  class="md:px-5 w-full md:w-[70%] md:mx-auto ">
 
     <!-- Notification Section -->
-    <div class="mt-14 md:mt-0 md:max-w-[800px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden rounded-2xl shadow-md 2xl:mb-20 ">
+    <div class="mt-8 md:mt-0 md:max-w-[800px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden rounded-2xl shadow-md 2xl:mb-20 ">
 
-        <div class="bg-[#f6f8fc] dark:bg-slate-900 h-[700px] md:h-[750px]  overflow-y-scroll p-3 md:p-5 2xl:p-10 flex flex-col gap-y-5">
+        <div class="bg-[#f6f8fc] dark:bg-slate-900 h-[600px] md:h-[750px]  overflow-y-scroll p-2 md:p-5 2xl:p-10 flex flex-col gap-y-5">
 
             @if (count($notifications) == 0)
-                <div class="flex justify-center items-center text-red-500 text-2xl h-full">
+                <div class="flex justify-center items-center text-red-500 text-xl lg:text-2xl h-full">
                     <div class=""></div>
                         <h1 class="text-center">
                             There is no notification yet!
@@ -30,13 +30,13 @@
                 </div>
             @else
             @foreach ($notifications as $notification)
-            <div class="shadow-md rounded-xl p-3 md:p-5 border border-blue-300/50 justify-between flex gap-x-5 items-center w-full">
-                <div class="flex gap-x-3 md:gap-x-5 items-center">
+            <div class="shadow-md rounded-xl px-2 py-1 md:p-5 md:py-5 border border-blue-300/50 justify-between flex gap-x-5 items-center w-full">
+                <div class="flex gap-x-2 md:gap-x-5 items-center">
                         <div class="flex items-end">
                             @if (Auth::user()->id == $notification->user_id)
                             <a href="{{ route('account#profilePage',Auth::user()->id) }}" class="w-12 2xl:w-16 cursor-pointer h-12 2xl:h-16 overflow-hidden rounded-full shadow-xl">
                             @else
-                            <a href="{{ route('member#accountProfilePage',$notification->user_id) }}" class="w-12 h-12 2xl:w-16 cursor-pointer 2xl:h-16 overflow-hidden rounded-full shadow-xl">
+                            <a href="{{ route('member#accountProfilePage',$notification->user_id) }}" class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 cursor-pointer overflow-hidden rounded-full shadow-xl">
 
                             @endif
                                 @if($notification->user_image == null)
@@ -52,8 +52,8 @@
                                 <img class="w-full" src="{{ asset('storage/'.$notification->user_image) }}">
                                 @endif
                             </a>
-                            <div class="-ms-5 border-2 border-[#f6f8fc] w-6 h-6 bg-blue-500 text-white flex justify-center items-center rounded-full overflow-hidden shadow-md">
-                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zm0-10h4v6h6v-6h4l-7-7l-7 7z"/></svg>
+                            <div class="-ms-3 md:-ms-5 border-2 border-[#f6f8fc] w-4 h-4 md:w-6 md:h-6 bg-blue-500 text-white flex justify-center items-center rounded-full overflow-hidden shadow-md">
+                                <svg class="w-3 h-3 md:h-5 md:w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zm0-10h4v6h6v-6h4l-7-7l-7 7z"/></svg>
                             </div>
                         </div>
                         <form action="{{ route('notification#postDetail',$notification->id) }}" method="GET" class="">
