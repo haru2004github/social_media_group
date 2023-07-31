@@ -131,14 +131,14 @@
                                 </button>
                             </div>
                             <div id="" class="messageContent">
-                                <p class="box-border bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-1 2xl:py-2 text-slate-700 rounded-xl lg:rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-2 md:mt-10 mr-2 max-w-[250px] lg:max-w-lg text-sm md:text-md">
+                                <p class="box-border bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-1 2xl:py-2 text-slate-700 rounded-xl lg:rounded-3xl rounded-tr-none lg:rounded-tr-none  shadow-md border border-slate-300 mt-2 md:mt-10 mr-2 max-w-[250px] lg:max-w-lg text-sm md:text-md overflow-hidden">
                                     <span class="block messageText">
                                         {{ $chat->message }}
                                     </span>
                                     <input required name="message" type="text" class="messageEdit w-[200px] lg:w-[400px] hidden  rounded-lg shadow-inner border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-3 py-1 focus:outline-none text-sm md:text-md" value="{{ $chat->message }}">
                                     <input  name="receiverId" type="hidden" value="{{ $chat->receiver_id }}">
                                 </p>
-                                <div class="">
+                                <div class="mr-2">
                                     <span class=" dark:text-slate-300 text-slate-700 ml-2 text-xs               ">
                                         {{ $chat->created_at->format('F d \a\t h:i A') }}
                                     </span>
@@ -173,10 +173,10 @@
                         <form action="{{ route('chat#editMyImage',$chat->id) }}" method="POST" class="flex items-center flex-row-reverse" enctype="multipart/form-data">
                             @csrf
                             <div class="">
-                                <div class="messageImage max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-tr-none shadow-md t-10 mr-2 mt-10">
+                                <div class="messageImage max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-tr-none lg:rounded-tr-none  shadow-md t-10 mr-2 mt-10">
                                     <img loading="lazy" id="previewEditImage" src="{{ asset('storage/'.$chat->image) }}" alt="">
                                 </div>
-                                <div class="">
+                                <div class="mr-2">
                                     <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
                                         {{ $chat->created_at->format('F d \a\t h:i A') }}
                                     </span>
@@ -238,7 +238,7 @@
                         <form action="{{ route('chat#editBothMessageAndImage',$chat->id) }}" method="POST" enctype="multipart/form-data" class="flex items-center flex-row-reverse">
                             @csrf
                             <div class="">
-                                <div class="bothContentAndImageMessage bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-xl lg:rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
+                                <div class="bothContentAndImageMessage bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-xl lg:rounded-3xl rounded-tr-none lg:rounded-tr-none  shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
                                     <h1 class="text-white bg-blue-500 px-3 py-2 text-sm md:text-md md:p-5 md:py-3 max-w-[250px] 2xl:max-w-[300px]">
                                         <span class="block messageText">
                                             {{ $chat->message }}
@@ -253,7 +253,7 @@
                                     </div>
                                 </div>
 
-                                <div class="">
+                                <div class="mr-2">
                                     <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
                                         {{ $chat->created_at->format('F d \a\t h:i A') }}
                                     </span>
@@ -318,10 +318,10 @@
                                 </a>
                             </div>
                             <div class="">
-                                <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 text-slate-700 rounded-xl lg:rounded-3xl rounded-tl-none shadow-md border text-sm md:text-md border-slate-300 mt-4 md:mt-6 2xl:mt-10 ml-2 max-w-lg">
+                                <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 text-slate-700 rounded-tl-none lg:rounded-tl-none rounded-xl lg:rounded-3xl shadow-md border text-sm md:text-md border-slate-300 mt-4 md:mt-6 2xl:mt-10 ml-2 max-w-lg">
                                     {{ $chat->message }}
                                 </p>
-                                <div class="">
+                                <div class="ml-2">
                                     <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
                                         {{ $chat->created_at->format('F d \a\t h:i A') }}
                                     </span>
@@ -354,7 +354,7 @@
                                 <div class= "max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl shadow-md mt-10">
                                     <img loading="lazy" src="{{ asset('storage/'.$chat->image) }}" alt="">
                                 </div>
-                                <div class="">
+                                <div class="ml-2">
                                     <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
                                         {{ $chat->created_at->format('F d \a\t h:i A') }}
                                     </span>
@@ -384,7 +384,7 @@
                                 </a>
                             </div>
                             <div class="">
-                                <div class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-xl lg:rounded-3xl rounded-tl-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
+                                <div class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-tl-none lg:rounded-tl-none rounded-xl lg:rounded-3xl shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
                                     <h1 class="text-white bg-blue-500 text-sm md:text-md p-3 2xl:p-5 py-1 2xl:py-2 max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px]">
                                         {{ $chat->message }}
                                     </h1>
@@ -395,7 +395,7 @@
                                     </div>
                                 </div>
 
-                                <div class="">
+                                <div class="ml-2">
                                     <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
                                         {{ $chat->created_at->format('F d \a\t h:i A') }}
                                     </span>

@@ -38,7 +38,6 @@
                             <button id="showOldPassword" type="button" onclick="showPass('oldPassword','showOldPassword')" for="passwordShow" class="cursor-pointer w-8 h-8  md:w-10 md:h-10 flex justify-center items-center shadow-md rounded-lg md:rounded-xl bg-blue-400 hover:bg-blue-500 duration-300 text-white">
                                 <svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.257 10.962c.474.62.474 1.457 0 2.076C19.764 14.987 16.182 19 12 19c-4.182 0-7.764-4.013-9.257-5.962a1.692 1.692 0 0 1 0-2.076C4.236 9.013 7.818 5 12 5c4.182 0 7.764 4.013 9.257 5.962Z"/><circle cx="12" cy="12" r="3"/></g></svg>
                             </button>
-
                         </div>
                     </div>
                     @error('oldPassword')
@@ -50,13 +49,11 @@
                     @enderror
                     <div class="mt-3 md:mt-8">
                         <label class="text-slate-600 dark:text-slate-300 text-sm md:text-md" for="newPassword">New Password</label><br>
-
                         <div class="flex items-center gap-x-2">
                             <input name="newPassword" id="newPassword" class="w-full text-sm md:text-md dark:bg-[#27282F] dark:border-slate-700 focus:outline-none text-slate-700 rounded-lg md:rounded-xl dark:text-slate-300 border border-slate-300 shadow-md md:shadow-lg px-3 md:px-5 py-1 md:py-2" type="password" placeholder="Enter Your New Password">
                             <button id="showNewPassword" type="button" onclick="showPass('newPassword','showNewPassword')" for="passwordShow" class="cursor-pointer w-8 h-8  md:w-10 md:h-10 flex justify-center items-center shadow-md rounded-lg md:rounded-xl bg-blue-400 hover:bg-blue-500 duration-300 text-white">
                                 <svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.257 10.962c.474.62.474 1.457 0 2.076C19.764 14.987 16.182 19 12 19c-4.182 0-7.764-4.013-9.257-5.962a1.692 1.692 0 0 1 0-2.076C4.236 9.013 7.818 5 12 5c4.182 0 7.764 4.013 9.257 5.962Z"/><circle cx="12" cy="12" r="3"/></g></svg>
                             </button>
-
                         </div>
                     </div>
                     @error('newPassword')
@@ -68,13 +65,11 @@
                     @enderror
                     <div class="mt-3 md:mt-8">
                         <label class="text-slate-600 dark:text-slate-300 text-sm md:text-md" for="confirmPassword">Confirm Password</label><br>
-
                         <div class="flex items-center gap-x-2">
                             <input name="confirmPassword" id="confirmPassword" class="w-full text-sm md:text-md dark:bg-[#27282F] dark:border-slate-700 focus:outline-none text-slate-700 rounded-lg md:rounded-xl dark:text-slate-300 border border-slate-300 shadow-md md:shadow-lg px-3 md:px-5 py-1 md:py-2" type="password" placeholder="Enter Your Confirm Password">
                             <button id="showConfirmPassword" type="button" onclick="showPass('confirmPassword','showConfirmPassword')" for="passwordShow" class="cursor-pointer w-8 h-8  md:w-10 md:h-10 flex justify-center items-center shadow-md rounded-lg md:rounded-xl bg-blue-400 hover:bg-blue-500 duration-300 text-white">
                                 <svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21.257 10.962c.474.62.474 1.457 0 2.076C19.764 14.987 16.182 19 12 19c-4.182 0-7.764-4.013-9.257-5.962a1.692 1.692 0 0 1 0-2.076C4.236 9.013 7.818 5 12 5c4.182 0 7.764 4.013 9.257 5.962Z"/><circle cx="12" cy="12" r="3"/></g></svg>
                             </button>
-
                         </div>
                     </div>
                     @error('confirmPassword')
@@ -93,11 +88,9 @@
             </div>
             <!--  -->
         </div>
-
     </div>
 </article>
 @endsection
-
 
 @section('script')
 <script src="{{ asset('js/auth.js') }}"></script>

@@ -24,16 +24,13 @@
                 <div class="-mt-36 z-10 flex justify-center items-end relative">
                     <div class="w-[100px] h-[100px] md:w-[150px] md:h-[150px] 2xl:w-[240px]  2xl:h-[240px] shadow-lg rounded-full overflow-hidden dark:border-slate-700 border-4 md:border-8 border-[#fafafa]">
                         @if(Auth::user()->image == null)
-
-                        @if(Auth::user()->gender == 'male')
-                        <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
-
+                            @if(Auth::user()->gender == 'male')
+                                <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                            @else
+                                <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                            @endif
                         @else
-                        <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
-
-                        @endif
-                        @else
-                        <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                            <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                         @endif
                     </div>
 
@@ -87,7 +84,6 @@
                             </p>
                         </div>
 
-
                         <!-- Phone  -->
                         <div class="flex items-center gap-x-3 mt-2">
                             <svg class="w-8 h-8 text-green-500 " xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="currentColor" d="M220.78 162.13L173.56 141a12 12 0 0 0-11.38 1a3.37 3.37 0 0 0-.38.28L137 163.42a3.93 3.93 0 0 1-3.7.21c-16.24-7.84-33.05-24.52-40.89-40.57a3.9 3.9 0 0 1 .18-3.69l21.2-25.21c.1-.12.19-.25.28-.38a12 12 0 0 0 1-11.36L93.9 35.28a12 12 0 0 0-12.48-7.19A52.25 52.25 0 0 0 36 80c0 77.2 62.8 140 140 140a52.25 52.25 0 0 0 51.91-45.42a12 12 0 0 0-7.13-12.45Zm-.78 11.45A44.23 44.23 0 0 1 176 212c-72.78 0-132-59.22-132-132a44.23 44.23 0 0 1 38.42-44a3.87 3.87 0 0 1 .48 0a4 4 0 0 1 3.67 2.49l21.11 47.14a4 4 0 0 1-.23 3.6l-21.19 25.2c-.1.13-.2.25-.29.39a12 12 0 0 0-.78 11.75c8.69 17.79 26.61 35.58 44.6 44.27a12 12 0 0 0 11.79-.87l.37-.28l24.83-21.12a3.93 3.93 0 0 1 3.57-.27l47.21 21.16a4 4 0 0 1 2.44 4.12Z"/></svg>
@@ -112,7 +108,6 @@
                             </p>
                         </div>
 
-
                         <!-- Role  -->
                         <div class="flex items-center gap-x-3 mt-2">
                             <svg class="text-slate-800 dark:text-slate-300 w-8 h-6 " xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="M28.07 21L22 15l6.07-6l1.43 1.41L24.86 15l4.64 4.59L28.07 21zM22 30h-2v-5a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5v5H2v-5a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7zM12 4a5 5 0 1 1-5 5a5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7a7 7 0 0 0-7-7z"/></svg>
@@ -133,7 +128,6 @@
                     </button>
                 </div>
             </div>
-
         </div>
 
         <div class="overflow-hidden w-full h-full md:w-auto min-h-[150px] 2xl:h-[400px] 2xl:min-h-[300px] 2xl:max-h-[400px] object-center max-h-[250px] dark:bg-slate-800 bg-slate-100 relative shadow-sm">
@@ -389,8 +383,6 @@
         </article>
     </form>
 </article>
-
-
 @endsection
 
 

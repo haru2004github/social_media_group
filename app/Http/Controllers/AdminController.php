@@ -25,8 +25,6 @@ class AdminController extends Controller
                         ->orWhere('address', 'like', '%' . request('key') . '%');
                 })
                 ->whereRole('admin')->orderBy('id','desc')->get();
-
-
         return view('admin.list',compact('admins'));
     }
 
@@ -44,7 +42,7 @@ class AdminController extends Controller
         View::where('user_id',$id)->delete();
         Comment::where('user_id',$id)->delete();
         Group_chat::where('user_id',$id)->delete();
-        Direct_chat::where('user_id',$id)->delete();
+        Direct_chat::where('sender_id',$id)->where('receiver_id',$id)->delete();
 
 
         //delete save posts related this user

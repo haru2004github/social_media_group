@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SavePost;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\View;
 use App\Models\Comment;
 use App\Models\Feeling;
 use App\Models\Reaction;
+use App\Models\SavePost;
+use App\Models\Group_chat;
+use App\Models\Direct_chat;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -200,6 +203,7 @@ class PostController extends Controller
                 Storage::delete('public/'.$dbImage);
             }
         }
+        
         Post::where('id',$id)->delete();
         Reaction::where('post_id',$id)->delete();
         Comment::where('post_id',$id)->delete();
