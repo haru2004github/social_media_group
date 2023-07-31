@@ -63,12 +63,12 @@
                                 href="{{ route('member#accountProfilePage',$member->id) }}"
                             @endif class="flex justify-center items-center w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 cursor-pointer overflow-hidden rounded-full shadow-xl">
                             @if($member->image !== null)
-                            <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$member->image) }}" alt="">
+                            <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$member->image) }}" alt="">
                             @else
                                  @if($member->gender == 'male')
-                                 <img id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                 <img loading="lazy" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                  @else
-                                 <img  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                 <img loading="lazy"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                  @endif
                             @endif
                         </a>
@@ -155,12 +155,12 @@
                             href="{{ route('member#accountProfilePage',$member->id) }}"
                         @endif class="w-20 md:w-24 2xl:w-32 h-20 md:h-24 2xl:h-32 border-4 border-[#f6f8fc] dark:border-slate-500 cursor-pointer  overflow-hidden rounded-full shadow-md">
                         @if($member->image !== null)
-                        <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$member->image) }}" alt="">
+                        <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$member->image) }}" alt="">
                         @else
                              @if($member->gender == 'male')
-                             <img id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                             <img loading="lazy" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                              @else
-                             <img  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                             <img loading="lazy"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                              @endif
                         @endif
                     </a>

@@ -6,7 +6,7 @@
 <section class=" md:max-w-6xl h-screen overflow-scroll w-full lg:w-auto 2xl:h-auto md:grid lg:grid-cols-2 items-center border border-blue-500/20 rounded-2xl shadow-xl flex flex-col md:justify-center">
     <article class="">
         <div class="flex justify-center items-center max-h-[300px] overflow-hidden md:max-w-auto md:overflow-auto ">
-            <img class="" src="https://i.pinimg.com/564x/2c/bc/69/2cbc69479dbf9b36aaeb67b8820928b9.jpg" alt="">
+            <img loading="lazy" class="" src="https://i.pinimg.com/564x/2c/bc/69/2cbc69479dbf9b36aaeb67b8820928b9.jpg" alt="">
         </div>
     </article>
     <!-- Login section  -->

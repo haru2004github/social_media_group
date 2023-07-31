@@ -67,12 +67,12 @@
                         <div class="">
                             <div class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 cursor-pointer overflow-hidden rounded-full shadow-xl">
                                 @if($user->image !== null)
-                                <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$user->image) }}" alt="">
+                                <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$user->image) }}" alt="">
                                 @else
                                      @if($user->gender == 'male')
-                                     <img id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                     <img loading="lazy" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                      @else
-                                     <img  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                     <img loading="lazy"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                      @endif
                                 @endif
                             </div>

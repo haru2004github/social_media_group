@@ -42,14 +42,14 @@
                                 @if($notification->user_image == null)
 
                                 @if($notification->user_gender == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                 @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                 @endif
                                 @else
-                                <img class="w-full" src="{{ asset('storage/'.$notification->user_image) }}">
+                                <img loading="lazy" class="w-full" src="{{ asset('storage/'.$notification->user_image) }}">
                                 @endif
                             </a>
                             <div class="-ms-3 md:-ms-5 border-2 border-[#f6f8fc] w-4 h-4 md:w-6 md:h-6 bg-blue-500 text-white flex justify-center items-center rounded-full overflow-hidden shadow-md">

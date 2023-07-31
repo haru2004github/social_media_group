@@ -36,14 +36,14 @@
                         @if($member->image == null)
 
                         @if($member->gender == 'male')
-                        <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                        <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                         @else
-                        <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                        <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                         @endif
                         @else
-                        <img class="w-full" src="{{ asset('storage/'.$member->image) }}">
+                        <img loading="lazy" class="w-full" src="{{ asset('storage/'.$member->image) }}">
                         @endif
                     </div>
 
@@ -141,9 +141,9 @@
 
         <div class="overflow-hidden min-h-[150px]  2xl:h-[400px] 2xl:min-h-[300px] 2xl:max-h-[400px] object-center max-h-[250px] dark:bg-slate-800 bg-slate-100 relative shadow-sm">
             @if ($member->cover_image !== null)
-            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$member->cover_image) }}" alt="">
+            <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$member->cover_image) }}" alt="">
             @else
-            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
+            <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
             @endif
         </div>
 

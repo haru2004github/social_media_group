@@ -24,12 +24,12 @@
                     <a href="{{ route('member#accountProfilePage',$chatPerson->id) }}" class="flex items-center gap-x-3">
                         <div class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full border-b border-slate-300">
                             @if($chatPerson->image !== null)
-                            <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$chatPerson->image) }}" alt="">
+                            <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$chatPerson->image) }}" alt="">
                             @else
                                  @if($chatPerson->gender == 'male')
-                                 <img class="w-full" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                 <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                  @else
-                                 <img class="w-full"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                 <img loading="lazy" class="w-full"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                  @endif
                             @endif
                         </div>
@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <div id="chatBackground" class="chat-container p-5 md:px-10 md:py-8 h-[600px] md:h-[500px] 2xl:h-[550px] overflow-y-scroll dark:bg-slate-900">
+            <div id="chatBackground" class="chat-container p-5 md:px-10 md:py-8 h-[450px] md:h-[500px] 2xl:h-[550px] overflow-y-scroll dark:bg-slate-900">
 
                 @if (count($chatMessages) == 0)
                 <div class="flex justify-center items-center h-full text-slate-700 dark:text-slate-200 ">
@@ -63,12 +63,12 @@
                         <div class="flex justify-center">
                             <div class="w-[100px] lg:w-[400px] h-[100px] md:w-[150px] md:h-[150px] 2xl:w-[200px] 2xl:h-[200px] rounded-full shadow-lg overflow-hidden">
                                 @if($chatPerson->image !== null)
-                                <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$chatPerson->image) }}" alt="">
+                                <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$chatPerson->image) }}" alt="">
                                 @else
                                      @if($chatPerson->gender == 'male')
-                                     <img class="w-full h-full object-cover object-center" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                     <img loading="lazy" class="w-full h-full object-cover object-center" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                      @else
-                                     <img class="w-full h-full object-cover object-center"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                     <img loading="lazy" class="w-full h-full object-cover object-center"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                      @endif
                                 @endif
                             </div>
@@ -103,12 +103,12 @@
                                 <a href="{{ route('account#profilePage',Auth::user()->id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
                                     @if(Auth::user()->image == null)
                                         @if(Auth::user()->gender == 'male')
-                                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                         @else
-                                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                         @endif
                                     @else
-                                        <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                                        <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                                     @endif
                                 </a>
                             </div>
@@ -131,7 +131,7 @@
                                 </button>
                             </div>
                             <div id="" class="messageContent">
-                                <p class="box-border bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-1 2xl:py-2 text-slate-700 rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-2 md:mt-10 mr-2 max-w-[250px] lg:max-w-lg text-sm md:text-md">
+                                <p class="box-border bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-1 2xl:py-2 text-slate-700 rounded-xl lg:rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-2 md:mt-10 mr-2 max-w-[250px] lg:max-w-lg text-sm md:text-md">
                                     <span class="block messageText">
                                         {{ $chat->message }}
                                     </span>
@@ -158,14 +158,14 @@
                                 @if(Auth::user()->image == null)
 
                                 @if(Auth::user()->gender == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                 @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                 @endif
                                 @else
-                                <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                                <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                                 @endif
                             </a>
                         </div>
@@ -174,7 +174,7 @@
                             @csrf
                             <div class="">
                                 <div class="messageImage max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-tr-none shadow-md t-10 mr-2 mt-10">
-                                    <img id="previewEditImage" src="{{ asset('storage/'.$chat->image) }}" alt="">
+                                    <img loading="lazy" id="previewEditImage" src="{{ asset('storage/'.$chat->image) }}" alt="">
                                 </div>
                                 <div class="">
                                     <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
@@ -223,14 +223,14 @@
                                 @if(Auth::user()->image == null)
 
                                 @if(Auth::user()->gender == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                 @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                 @endif
                                 @else
-                                <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                                <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                                 @endif
                             </a>
                         </div>
@@ -238,8 +238,8 @@
                         <form action="{{ route('chat#editBothMessageAndImage',$chat->id) }}" method="POST" enctype="multipart/form-data" class="flex items-center flex-row-reverse">
                             @csrf
                             <div class="">
-                                <div class="bothContentAndImageMessage bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
-                                    <h1 class="text-white bg-blue-500 p-3 text-sm md:text-md md:p-5 md:py-3 max-w-[250px] 2xl:max-w-[300px]">
+                                <div class="bothContentAndImageMessage bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-xl lg:rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
+                                    <h1 class="text-white bg-blue-500 px-3 py-2 text-sm md:text-md md:p-5 md:py-3 max-w-[250px] 2xl:max-w-[300px]">
                                         <span class="block messageText">
                                             {{ $chat->message }}
                                         </span>
@@ -248,7 +248,7 @@
                                     </h1>
                                     <div class="">
                                         <div class="max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-t-none shadow-md">
-                                            <img id="previewEditMessageAndImage" class="w-full" src="{{ asset('storage/'.$chat->image) }}" alt="">
+                                            <img loading="lazy" id="previewEditMessageAndImage" class="w-full" src="{{ asset('storage/'.$chat->image) }}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -300,111 +300,109 @@
 
                     {{-- for only message  --}}
                     @if ($chat->message !== null && $chat->image == null)
-                    <div id="" class="flex mt-4 md:mt-6">
-                        <div class="">
-                            <a href="{{ route('member#accountProfilePage',$chatPerson->id) }}"class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
-                                @if($chatPerson->image == null)
-
-                                @if($chatPerson->gender == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
-
-                                @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
-
-                                @endif
-                                @else
-                                <img class="w-full" src="{{ asset('storage/'.$chatPerson->image) }}">
-                                @endif
-                            </a>
-                        </div>
-                        <div class="">
-                            <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 text-slate-700 rounded-3xl rounded-tl-none shadow-md border text-sm md:text-md border-slate-300 mt-4 md:mt-6 2xl:mt-10 ml-2 max-w-lg">
-                                {{ $chat->message }}
-                            </p>
+                        <div id="" class="flex mt-4 md:mt-6">
                             <div class="">
-                                <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
-                                    {{ $chat->created_at->format('F d \a\t h:i A') }}
-                                </span>
+                                <a href="{{ route('member#accountProfilePage',$chatPerson->id) }}"class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
+                                    @if($chatPerson->image == null)
+
+                                    @if($chatPerson->gender == 'male')
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+
+                                    @else
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+
+                                    @endif
+                                    @else
+                                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$chatPerson->image) }}">
+                                    @endif
+                                </a>
+                            </div>
+                            <div class="">
+                                <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 text-slate-700 rounded-xl lg:rounded-3xl rounded-tl-none shadow-md border text-sm md:text-md border-slate-300 mt-4 md:mt-6 2xl:mt-10 ml-2 max-w-lg">
+                                    {{ $chat->message }}
+                                </p>
+                                <div class="">
+                                    <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
+                                        {{ $chat->created_at->format('F d \a\t h:i A') }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
-
 
                     {{-- for only image  --}}
                     @if ($chat->image !== null && $chat->message == null)
-                    <div id="" class=" flex mt-4 md:mt-6  ">
+                        <div id="" class=" flex mt-4 md:mt-6  ">
 
-                        <div class="">
-                            <a href="{{ route('member#accountProfilePage',$chatPerson->id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
-                                @if($chatPerson->image == null)
+                            <div class="">
+                                <a href="{{ route('member#accountProfilePage',$chatPerson->id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
+                                    @if($chatPerson->image == null)
 
-                                @if($chatPerson->gender == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                    @if($chatPerson->gender == 'male')
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
-                                @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                    @else
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
-                                @endif
-                                @else
-                                <img class="w-full" src="{{ asset('storage/'.$chatPerson->image) }}">
-                                @endif
-                            </a>
-                        </div>
-                        <div class="">
-                            <div class= "max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl shadow-md mt-10">
-                                <img src="{{ asset('storage/'.$chat->image) }}" alt="">
+                                    @endif
+                                    @else
+                                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$chatPerson->image) }}">
+                                    @endif
+                                </a>
                             </div>
                             <div class="">
-                                <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
-                                    {{ $chat->created_at->format('F d \a\t h:i A') }}
-                                </span>
+                                <div class= "max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl shadow-md mt-10">
+                                    <img loading="lazy" src="{{ asset('storage/'.$chat->image) }}" alt="">
+                                </div>
+                                <div class="">
+                                    <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
+                                        {{ $chat->created_at->format('F d \a\t h:i A') }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
-
 
                     {{-- for both image and message  --}}
 
                     @if ($chat->image !== null && $chat->message !== null)
-                    <div id="" class=" flex mt-4 md:mt-6">
-                        <div class="">
-                            <a href="{{ route('member#accountProfilePage',$chatPerson->id) }}"  class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
-                                @if($chatPerson->image == null)
+                        <div id="" class=" flex mt-4 md:mt-6">
+                            <div class="">
+                                <a href="{{ route('member#accountProfilePage',$chatPerson->id) }}"  class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
+                                    @if($chatPerson->image == null)
 
-                                @if($chatPerson->gender == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                    @if($chatPerson->gender == 'male')
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
-                                @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                    @else
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
-                                @endif
-                                @else
-                                <img class="w-full" src="{{ asset('storage/'.$chatPerson->image) }}">
-                                @endif
-                            </a>
-                        </div>
-                        <div class="">
-                            <div class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-3xl rounded-tl-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
-                                <h1 class="text-white bg-blue-500 text-sm md:text-md p-3 2xl:p-5 py-1 2xl:py-2 max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px]">
-                                    {{ $chat->message }}
-                                </h1>
-                                <div class="">
-                                    <div class="max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-t-none shadow-md">
-                                        <img src="{{ asset('storage/'.$chat->image) }}" alt="">
+                                    @endif
+                                    @else
+                                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$chatPerson->image) }}">
+                                    @endif
+                                </a>
+                            </div>
+                            <div class="">
+                                <div class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-xl lg:rounded-3xl rounded-tl-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
+                                    <h1 class="text-white bg-blue-500 text-sm md:text-md p-3 2xl:p-5 py-1 2xl:py-2 max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px]">
+                                        {{ $chat->message }}
+                                    </h1>
+                                    <div class="">
+                                        <div class="max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-t-none shadow-md">
+                                            <img loading="lazy" src="{{ asset('storage/'.$chat->image) }}" alt="">
+                                        </div>
                                     </div>
+                                </div>
+
+                                <div class="">
+                                    <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
+                                        {{ $chat->created_at->format('F d \a\t h:i A') }}
+                                    </span>
                                 </div>
                             </div>
 
-                            <div class="">
-                                <span class=" dark:text-slate-300 text-slate-700 text-xs               ">
-                                    {{ $chat->created_at->format('F d \a\t h:i A') }}
-                                </span>
-                            </div>
                         </div>
-
-                    </div>
                     @endif
 
                     @endif
@@ -427,7 +425,7 @@
                 <form action="{{ route('chat#sendMessage') }}"  method="POST" class="mt-3 flex items-center gap-x-3" enctype="multipart/form-data">
                     @csrf
                     <div class="w-full">
-                        <input name='message' class="chatInput focus:outline-none w-full dark:bg-[#27282F] dark:border-slate-700 dark:text-slate-400 bg-[#f6f8fc] text-slate-700 2xl:text-md text-sm px-3 2xl:px-5 py-2 rounded-2xl shadow-md border border-slate-300 " type="text" placeholder="White a message...">
+                        <input name='message' class="chatInput focus:outline-none w-full dark:bg-[#27282F] dark:border-slate-700 dark:text-slate-400 bg-[#f6f8fc] text-slate-700 2xl:text-md text-sm px-3 2xl:px-5 py-2 rounded-2xl shadow-md border border-slate-300 " type="text" placeholder="Write a message...">
                         <input name="receiverId" type="hidden" value="{{ $chatPerson->id }}">
                     </div>
                     <div class="flex items-center gap-x-2">
@@ -448,7 +446,7 @@
                 <!-- Preview image modal  -->
                 <div class="mt-3 2xl:mt-5">
                     <div class="overflow-hidden w-[120px] rounded-xl shadow-md">
-                        <img class="w-full" id="previewImage" src="" alt="">
+                        <img loading="lazy" class="w-full" id="previewImage" src="" alt="">
                     </div>
                 </div>
             </div>

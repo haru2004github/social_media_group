@@ -22,9 +22,9 @@
                     <div class="flex items-center gap-x-3">
                         <div class="w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full border-b border-slate-300">
                             @if($group->image == null)
-                            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('img/default-group-photo.jpg') }}" alt="">
+                            <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('img/default-group-photo.jpg') }}" alt="">
                             @else
-                            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$group->image) }}">
+                            <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$group->image) }}">
                             @endif
                         </div>
                         <span class="text-slate-700 dark:text-slate-200 text-md md:text-lg lg:text-xl">
@@ -50,12 +50,12 @@
                     </div>
                 </div>
             </div>
-            <div id="groupChatBackground" class="chat-container p-5 md:px-10 md:py-8 h-[500px] 2xl:h-[550px] overflow-y-scroll dark:bg-slate-900">
+            <div id="groupChatBackground" class="chat-container p-5 md:px-10 md:py-8 h-[450px] md:h-[500px] 2xl:h-[550px] overflow-y-scroll dark:bg-slate-900">
 
                 @if (count($groupChats) == 0)
-                <div class="flex justify-center items-center h-full text-slate-700 dark:text-slate-200 text-xl md:text-3xl">
-                    Welcome to my channel!
-                </div>
+                    <div class="flex justify-center items-center h-full text-slate-700 dark:text-slate-200 text-xl md:text-3xl">
+                        Welcome to my channel!
+                    </div>
                 @else
                 <div class="chat-messages">
 
@@ -73,12 +73,12 @@
                                             <a href="{{ route('account#profilePage',Auth::user()->id) }}" class="block w-9 lg:w-12 2xl:w-16 cursor-pointer h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-md">
                                                 @if(Auth::user()->image == null)
                                                     @if(Auth::user()->gender == 'male')
-                                                        <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                                        <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                                     @else
-                                                        <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                                        <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                                     @endif
                                                 @else
-                                                    <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                                                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                                                 @endif
                                             </a>
                                         </div>
@@ -88,7 +88,7 @@
                                         @csrf
                                         <div id="" class="messageContent">
                                             <p class="box-border bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-1 2xl:py-2 text-slate-700 rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-[250px] lg:max-w-lg text-sm md:text-md">
-                                                <span class="block messageText ml-3">
+                                                <span class="block messageText ">
                                                     {{ $groupChat->message }}
                                                 </span>
                                                 <input required name="message" type="text" class="messageEdit w-[200px] lg:w-[400px] hidden  rounded-lg shadow-inner border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-3 py-1 focus:outline-none text-sm md:text-md" value="{{ $groupChat->message }}">
@@ -130,14 +130,14 @@
                                             @if(Auth::user()->image == null)
 
                                             @if(Auth::user()->gender == 'male')
-                                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                             @else
-                                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                             @endif
                                             @else
-                                            <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                                             @endif
                                         </a>
                                     </div>
@@ -146,7 +146,7 @@
                                         @csrf
                                         <div class="">
                                             <div class="messageImage max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-tr-none shadow-md t-10 mr-2 mt-10">
-                                                <img id="previewEditImage" src="{{ asset('storage/'.$groupChat->image) }}" alt="">
+                                                <img loading="lazy" id="previewEditImage" src="{{ asset('storage/'.$groupChat->image) }}" alt="">
                                             </div>
                                             <div class="">
                                                 <span class=" dark:text-slate-300 text-slate-700 text-xs">
@@ -195,14 +195,14 @@
                                             @if(Auth::user()->image == null)
 
                                             @if(Auth::user()->gender == 'male')
-                                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                             @else
-                                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                             @endif
                                             @else
-                                            <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                                             @endif
                                         </a>
                                     </div>
@@ -211,7 +211,7 @@
                                         @csrf
                                         <div class="">
                                             <div class="bothContentAndImageMessage bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-3xl rounded-tr-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
-                                                <h1 class="text-white bg-blue-500 p-3 text-sm md:text-md md:p-5 md:py-3 max-w-[250px] 2xl:max-w-[300px]">
+                                                <h1 class="text-white bg-blue-500 px-3 py-2 text-sm md:text-md md:p-5 md:py-3 max-w-[250px] 2xl:max-w-[300px]">
                                                     <span class="block messageText">
                                                         {{ $groupChat->message }}
                                                     </span>
@@ -220,7 +220,7 @@
                                                 </h1>
                                                 <div class="">
                                                     <div class="max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-t-none shadow-md">
-                                                        <img id="previewEditMessageAndImage" class="w-full" src="{{ asset('storage/'.$groupChat->image) }}" alt="">
+                                                        <img loading="lazy" id="previewEditMessageAndImage" class="w-full" src="{{ asset('storage/'.$groupChat->image) }}" alt="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -278,20 +278,22 @@
                                             @if($groupChat->user_image == null)
 
                                             @if($groupChat->user_gender == 'male')
-                                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                             @else
-                                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                             @endif
                                             @else
-                                            <img class="w-full" src="{{ asset('storage/'.$groupChat->user_image) }}">
+                                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.$groupChat->user_image) }}">
                                             @endif
                                         </a>
                                     </div>
                                     <div class="">
-                                        <p class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 text-slate-700 rounded-3xl rounded-tl-none shadow-md border text-sm md:text-md border-slate-300 mt-2 md:mt-6 ml-2 max-w-lg">
-                                            {{ $groupChat->message }}
+                                        <p class=" box-border bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 p-3 2xl:p-5 py-1 2xl:py-2 text-slate-700 rounded-3xl rounded-tl-none shadow-md border border-slate-300 mt-10 mr-2 max-w-[250px] lg:max-w-lg text-sm md:text-md">
+                                            <span>
+                                                {{ $groupChat->message }}
+                                            </span>
                                         </p>
                                         <div class="">
                                             <span class=" dark:text-slate-300 text-slate-700 text-xs">
@@ -310,20 +312,20 @@
                                             @if($groupChat->user_image == null)
 
                                             @if($groupChat->user_gender == 'male')
-                                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                             @else
-                                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                             @endif
                                             @else
-                                            <img class="w-full" src="{{ asset('storage/'.$groupChat->user_image) }}">
+                                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.$groupChat->user_image) }}">
                                             @endif
                                         </a>
                                     </div>
                                     <div class="">
-                                        <div class= "max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl shadow-md mt-10">
-                                            <img src="{{ asset('storage/'.$groupChat->image) }}" alt="">
+                                        <div class= "max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-tr-none shadow-md t-10 mr-2 mt-10">
+                                            <img loading="lazy" src="{{ asset('storage/'.$groupChat->image) }}" alt="">
                                         </div>
                                         <div class="">
                                             <span class=" dark:text-slate-300 text-slate-700 text-xs">
@@ -342,25 +344,25 @@
                                             @if($groupChat->user_image == null)
 
                                             @if($groupChat->user_gender == 'male')
-                                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                             @else
-                                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                             @endif
                                             @else
-                                            <img class="w-full" src="{{ asset('storage/'.$groupChat->user_image) }}">
+                                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.$groupChat->user_image) }}">
                                             @endif
                                         </a>
                                     </div>
                                     <div class="">
                                         <div class=" bg-white dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700  text-slate-700 rounded-3xl rounded-tl-none shadow-md border border-slate-300 mt-10 mr-2 max-w-lg overflow-hidden">
-                                            <h1 class="text-white bg-blue-500 text-sm md:text-md p-3 2xl:p-5 py-2 max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px]">
+                                            <h1 class="text-white bg-blue-500 px-3 py-2 text-sm md:text-md md:p-5 md:py-3 max-w-[250px] 2xl:max-w-[300px]">
                                                 {{ $groupChat->message }}
                                             </h1>
                                             <div class="">
-                                                <div class="max-w-[200px] lg:max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-t-none shadow-md">
-                                                    <img src="{{ asset('storage/'.$groupChat->image) }}" alt="">
+                                                <div class="max-w-[250px] 2xl:max-w-[300px] overflow-hidden rounded-xl rounded-t-none shadow-md">
+                                                    <img loading="lazy" src="{{ asset('storage/'.$groupChat->image) }}" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -394,7 +396,7 @@
                 <form action="{{ route('group_chat#sendMessage') }}"  method="POST" class="mt-3 flex items-center gap-x-3" enctype="multipart/form-data">
                     @csrf
                     <div class="w-full">
-                        <input name='message' class="chatInput focus:outline-none w-full dark:bg-[#27282F] dark:border-slate-700 dark:text-slate-400 bg-[#f6f8fc] text-slate-700 2xl:text-md text-sm px-3 2xl:px-5 py-2 rounded-2xl shadow-md border border-slate-300 " type="text" placeholder="White a message...">
+                        <input name='message' class="chatInput focus:outline-none w-full dark:bg-[#27282F] dark:border-slate-700 dark:text-slate-400 bg-[#f6f8fc] text-slate-700 2xl:text-md text-sm px-3 2xl:px-5 py-2 rounded-2xl shadow-md border border-slate-300 " type="text" placeholder="Write a message...">
                         <input name="userId" type="hidden" value="{{ Auth::user()->id }}">
                     </div>
                     <div class="flex items-center gap-x-2">
@@ -415,7 +417,7 @@
                 <!-- Preview image modal  -->
                 <div class="mt-3 2xl:mt-5">
                     <div class="overflow-hidden w-[120px] rounded-xl shadow-md">
-                        <img class="w-full" id="previewImage" src="" alt="">
+                        <img loading="lazy" class="w-full" id="previewImage" src="" alt="">
                     </div>
                 </div>
             </div>

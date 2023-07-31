@@ -18,7 +18,7 @@
     <div class="2xl:mt-10 max-w-[850px] dark:bg-[#1E1F23] border-2 border-blue-300/20 dark:border-slate-700  mx-auto overflow-hidden  rounded-2xl shadow-lg ">
 
         <!-- user list -->
-        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[700px] md:h-[500px] max-h-[700px] md:max-h-none
+        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[550px] md:h-[500px] max-h-[700px] md:max-h-none
         2xl:h-[700px] overflow-y-scroll p-3 md:p-5 2xl:p-10 flex flex-col gap-y-3 md:gap-y-5">
 
             @if (count($reactors) == 0 )
@@ -30,32 +30,44 @@
                 {{-- post Id  --}}
                 <input id="postId" type="hidden" value="{{ $reactor->post_id }}">
 
-                <div class="shadow-lg dark:shadow-slate-900 p-3 px-5 border border-blue-300/50 dark:border-slate-700 rounded-xl justify-between flex gap-x-3 items-center">
+                <div class="shadow-lg dark:shadow-slate-900 p-2 md:p-3  md:px-5 border border-blue-300/50 dark:border-slate-700 rounded-xl justify-between flex gap-x-3 items-center">
                     <div class="flex gap-x-1 md:gap-x-2 items-center">
                         <div class="">
-                            <div class="lg:w-14 lg:h-14 w-10 h-10 overflow-hidden rounded-full shadow-xl">
+                            <a @if (Auth::user()->id == $reactor->user_id)
+                                href="{{ route('account#profilePage',Auth::user()->id) }}"
+                            @else
+                                href="{{ route('member#accountProfilePage',$reactor->user_id) }}"
+                            @endif  class="flex justify-center items-center lg:w-14 lg:h-14 w-10 h-10 overflow-hidden rounded-full shadow-xl">
                                 @if($reactor->user_image !== null)
-                                <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$reactor->user_image) }}" alt="">
+                                <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$reactor->user_image) }}" alt="">
                                 @else
                                      @if($reactor->user_gender == 'male')
-                                     <img id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                        <img loading="lazy" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                      @else
-                                     <img  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                        <img loading="lazy"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                      @endif
                                 @endif
-                            </div>
+                            </a>
                         </div>
                         <div class="">
-                            <h1 class="text-slate-700 ml-1 dark:text-slate-200 text-xs md:text-lg">
+                            <a @if (Auth::user()->id == $reactor->user_id)
+                                href="{{ route('account#profilePage',Auth::user()->id) }}"
+                            @else
+                                href="{{ route('member#accountProfilePage',$reactor->user_id) }}"
+                            @endif  class="text-slate-700 ml-1 dark:text-slate-200 text-xs md:text-lg">
                                 {{ $reactor->user_name }}
-                            </h1>
-                            <h2 class="text-slate-500 dark:text-slate-400 text-xs ml-1 md:text-sm flex items-center gap-x-1 ">
+                            </a>
+                            <a @if (Auth::user()->id == $reactor->user_id)
+                                href="{{ route('account#profilePage',Auth::user()->id) }}"
+                            @else
+                                href="{{ route('member#accountProfilePage',$reactor->user_id) }}"
+                            @endif  class="text-slate-500 dark:text-slate-400 text-xs ml-1 md:text-sm flex items-center gap-x-1 ">
                                 <svg class="hidden md:inline text-red-400 w-4 h-4 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z"/></svg>
                                 {{ $reactor->user_address }}
-                            </h2>
+                            </a>
                         </div>
                     </div>
-                    <div class="flex items-center gap-x-4 lg:gap-x-6">
+                    <div class="flex items-center gap-x-2 md:gap-x-4 lg:gap-x-6">
                         <div class="flex items-center gap-x-2">
                             @if (Auth::user()->id == $reactor->user_id)
                             <a  href="{{ route('member#accountProfilePage',$reactor->user_id) }}"  class=" text-white bg-blue-400 hover:bg-blue-500 duration-300 text-xs md:text-sm px-2 py-1 md:px-3 md:py-2 rounded-lg flex justify-center items-center shadow-md" title="Profile">
@@ -74,9 +86,9 @@
                             @endif
                         </div>
 
-                        {{-- User ROle  --}}
+                        {{-- React type --}}
                         <div class=" w-8 h-8 md:w-9 md:h-9 2xl:w-10 2xl:h-10 rounded-full overflow-hidden">
-                            <img class="w-full" src="{{ asset('img/'.$reactor->reaction_type.'.png') }}" alt="">
+                            <img loading="lazy" class="w-full" src="{{ asset('img/'.$reactor->reaction_type.'.png') }}" alt="">
                         </div>
 
                     </div>
@@ -103,7 +115,6 @@
     $(document).ready(function(){
         localStorage.setItem('scrollTo','post'+$('#postId').val())
         console.log($('#postId'))
-
     })
 
 </script>

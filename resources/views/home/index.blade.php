@@ -25,12 +25,12 @@
     <div class=" lg:max-w-[720px] 2xl:max-w-[1200px] mx-auto">
         <div class="mt-8 md:mt-0 overflow-hidden shadow-lg border rounded-lg  md:rounded-2xl lg:h-[500px] min-h-[200px] h-[200px] max-h-[300px] md:min-h-[300px] md:max-h-[300px] md:h-[300px] lg:min-h-[450px] lg:max-h-[500px] object-cover bg-slate-200 z-0">
             @if (count($group) == 0)
-            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
+            <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
             @else
                 @if ($group[0]->image == null)
-                <img class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
+                <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
                 @else
-                <img class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$group[0]->image) }}" alt="">
+                <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$group[0]->image) }}" alt="">
                 @endif
             @endif
         </div>
@@ -67,14 +67,14 @@
                     @if($member->image == null)
 
                     @if($member->gender == 'male')
-                    <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                    <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                     @else
-                    <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                    <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                     @endif
                     @else
-                    <img class="w-full" src="{{ asset('storage/'.$member->image) }}">
+                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$member->image) }}">
                     @endif
                 </a>
             </div>
@@ -95,14 +95,14 @@
                         @if(Auth::user()->image == null)
 
                         @if(Auth::user()->gender == 'male')
-                        <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                        <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                         @else
-                        <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                        <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                         @endif
                         @else
-                        <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                        <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                         @endif
                     </a>
                 </div>
@@ -143,12 +143,12 @@
                       @endif class="lg:w-14 lg:h-14 w-9 h-9 overflow-hidden rounded-full shadow-xl">
                         @if($post->user_image == null)
                             @if($post->user_gender == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                             @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                             @endif
                         @else
-                            <img class="w-full" src="{{ asset('storage/'.$post->user_image) }}">
+                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.$post->user_image) }}">
                         @endif
                     </a>
                     <div class="">
@@ -239,7 +239,7 @@
             </a>
             @if ($post->image !== null)
             <div class=" 2xl:mt-8 mt-3 md:mt-5 rounded-xl shadow-lg max-h-[500px] overflow-hidden">
-                <img id="postImage" class="postImage image cursor-pointer object-center object-cover h-full w-full" src="{{ asset('storage/'.$post->image) }}" alt="">
+                <img loading="lazy" id="postImage" class="postImage image cursor-pointer object-center object-cover h-full w-full" src="{{ asset('storage/'.$post->image) }}" alt="">
             </div>
             @endif
             <!-- like and comment button  -->
@@ -254,28 +254,28 @@
 
                         <div class="">
                             <div title="Like" id="like" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/like.png') }}" alt="">
+                                <img loading="lazy" src="{{ asset('img/like.png') }}" alt="">
                             </div>
                         </div>
 
                         <div class="">
                             <div title="Love" id="love" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/love.png') }}" alt="">
+                                <img loading="lazy" src="{{ asset('img/love.png') }}" alt="">
                             </div>
                         </div>
                         <div class="">
                             <div title="Think" id="think" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/think.png') }}" alt="">
+                                <img loading="lazy" src="{{ asset('img/think.png') }}" alt="">
                             </div>
                         </div>
                         <div class="">
                             <div title="Sad" id="sad" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/sad.png') }}" alt="">
+                                <img loading="lazy" src="{{ asset('img/sad.png') }}" alt="">
                             </div>
                        </div>
                         <div class="">
                             <div title="Angry" id="angry" class=" react flex justify-center items-center cursor-pointer w-5 h-5 lg:w-10 lg:h-10 hover:scale-[1.2] duration-300 overflow-hidden rounded-full ">
-                                <img src="{{ asset('img/angry.png') }}" alt="">
+                                <img loading="lazy" src="{{ asset('img/angry.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -290,7 +290,7 @@
                                 @switch($reaction->reaction_type)
                                     @case('like')
                                         <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                            <img class="w-full" src="{{ asset('img/like.png') }}" alt="">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/like.png') }}" alt="">
                                         </div>
                                         <span class="text-sm 2xl:text-lg hidden md:inline">
                                             Liked
@@ -299,7 +299,7 @@
 
                                     @case('love')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/love.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/love.png') }}" alt="">
                                     </div>
                                     <span class="text-sm 2xl:text-lg hidden md:inline">
                                         Love
@@ -308,7 +308,7 @@
 
                                     @case('think')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/think.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/think.png') }}" alt="">
                                     </div>
                                     <span class="text-sm 2xl:text-lg hidden md:inline">
                                         Think
@@ -317,7 +317,7 @@
 
                                     @case('sad')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/sad.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/sad.png') }}" alt="">
                                     </div>
                                     <span class="text-sm 2xl:text-lg hidden md:inline">
                                         Sad
@@ -326,7 +326,7 @@
 
                                     @case('angry')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/angry.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/angry.png') }}" alt="">
                                     </div>
                                     <span class="text-sm 2xl:text-lg hidden md:inline">
                                         Angry
@@ -381,38 +381,38 @@
             </div>
 
             @if ($post->reaction_count != 0)
-            <a href="{{ route('reaction#listPage',$post->id) }}" class="setScrollTo hover:underline duration-150 text-xs md:text-md xl:text-lg text-slate-700 dark:text-slate-200 py-3 inline-flex gap-x-2 items-center">
+            <a href="{{ route('reaction#listPage',$post->id) }}" class="setScrollTo hover:underline duration-150 text-xs md:text-md xl:text-lg text-slate-700 dark:text-slate-200 py-3 inline-flex gap-x-1 md:gap-x-2 items-center">
                 @if(in_array(Auth::user()->id,explode(',',$post->reactor_id)))
                     @foreach ($reactions as $reaction)
                         @if ($post->id == $reaction->post_id && $reaction->user_id == Auth::user()->id)
                             @switch($reaction->reaction_type)
                                 @case('like')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/like.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/like.png') }}" alt="">
                                     </div>
                                 @break
 
                                 @case('love')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/love.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/love.png') }}" alt="">
                                     </div>
                                 @break
 
                                 @case('think')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/think.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/think.png') }}" alt="">
                                     </div>
                                 @break
 
                                 @case('sad')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/sad.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/sad.png') }}" alt="">
                                     </div>
                                 @break
 
                                 @case('angry')
                                     <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                        <img class="w-full" src="{{ asset('img/angry.png') }}" alt="">
+                                        <img loading="lazy" class="w-full" src="{{ asset('img/angry.png') }}" alt="">
                                     </div>
                                 @break
 
@@ -433,31 +433,31 @@
                                     @switch($reaction->reaction_type)
                                         @case('like')
                                             <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                                <img class="w-full" src="{{ asset('img/like.png') }}" alt="">
+                                                <img loading="lazy" class="w-full" src="{{ asset('img/like.png') }}" alt="">
                                             </div>
                                         @break
 
                                         @case('love')
                                             <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                                <img class="w-full" src="{{ asset('img/love.png') }}" alt="">
+                                                <img loading="lazy" class="w-full" src="{{ asset('img/love.png') }}" alt="">
                                             </div>
                                         @break
 
                                         @case('think')
                                             <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                                <img class="w-full" src="{{ asset('img/think.png') }}" alt="">
+                                                <img loading="lazy" class="w-full" src="{{ asset('img/think.png') }}" alt="">
                                             </div>
                                         @break
 
                                         @case('sad')
                                             <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                                <img class="w-full" src="{{ asset('img/sad.png') }}" alt="">
+                                                <img loading="lazy" class="w-full" src="{{ asset('img/sad.png') }}" alt="">
                                             </div>
                                         @break
 
                                         @case('angry')
                                             <div class=" w-5 h-5 lg:w-8 lg:h-8 rounded-full overflow-hidden">
-                                                <img class="w-full" src="{{ asset('img/angry.png') }}" alt="">
+                                                <img loading="lazy" class="w-full" src="{{ asset('img/angry.png') }}" alt="">
                                             </div>
                                         @break
 
@@ -503,14 +503,14 @@
                                     @if($comment[0]->user_image == null)
 
                                     @if($comment[0]->user_gender == 'male')
-                                    <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                     @else
-                                    <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                     @endif
                                     @else
-                                    <img class="w-full" src="{{ asset('storage/'.$comment[0]->user_image) }}">
+                                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$comment[0]->user_image) }}">
                                     @endif
                                 </div>
                                 <div class="">
@@ -530,7 +530,7 @@
                                 @endif
                                 @if ($comment[0]->image)
                                 <div class="mt-3 overflow-hidden rounded-lg max-w-[250px]">
-                                    <img id="image" class="image" src="{{ asset('storage/'.$comment[0]->image) }}" alt="">
+                                    <img loading="lazy" id="image" class="image" src="{{ asset('storage/'.$comment[0]->image) }}" alt="">
                                 </div>
                                 @endif
                             </div>
@@ -551,14 +551,14 @@
                         @if(Auth::user()->image == null)
 
                         @if(Auth::user()->gender == 'male')
-                        <img src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                        <img loading="lazy" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                         @else
-                        <img src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                        <img loading="lazy" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                         @endif
                         @else
-                        <img src="{{ asset('storage/'.Auth::user()->image) }}" alt="User Profile">
+                        <img loading="lazy" src="{{ asset('storage/'.Auth::user()->image) }}" alt="User Profile">
                         @endif
                     </div>
                 </a>
@@ -582,7 +582,7 @@
             <!-- Preview image modal  -->
             <div class="mt-2 md:mt-3 lg:mt-5">
                 <div class="overflow-hidden w-[120px] rounded-xl shadow-lg">
-                    <img class="w-full" id="previewCommentImage" src="" alt="">
+                    <img loading="lazy" class="w-full" id="previewCommentImage" src="" alt="">
                 </div>
             </div>
         </div>
@@ -604,7 +604,7 @@
 </article>
 
 {{-- fullImage  --}}
-<article class="modalImageContainer w-full  fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-3 md:p-5 2xl:p-8  dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500 overflow-hidden">
+<article class="modalImageContainer w-full md:w-auto fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-3 md:p-5 2xl:p-8  dark:bg-slate-800 bg-slate-100 z-50 rounded-2xl shadow-xl border border-blue-300/50 opacity-0 pointer-events-none duration-500 overflow-hidden">
     <div class="flex justify-end">
         <div class="flex items-center gap-x-2">
             <a href=""class="savePhotoBtn w-7 h-7 2xl:w-10 2xl:h-10 bg-green-400 hover:bg-green-500 duration-300  shadow-lg flex justify-center items-center rounded-full text-white" title="Save Photo" download >
@@ -616,7 +616,7 @@
         </div>
     </div>
     <div class="rounded-lg overflow-hidden mt-3 2xl:mt-5 2xl:h-[600px] w-auto">
-        <img class="fullImage h-full" src="" alt="">
+        <img loading="lazy" class="fullImage h-full" src="" alt="">
     </div>
 </article>
 
@@ -640,13 +640,13 @@
             </div>
             <div class="rounded-xl flex justify-center shadow-md overflow-hidden mt-3">
                 @if (count($group) == 0)
-                <img id="previewImageForGroup" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
+                <img loading="lazy" id="previewImageForGroup" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
                 @else
                     @if ($group[0]->image == null)
-                    <img id="previewImageForGroup" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
+                    <img loading="lazy" id="previewImageForGroup" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://img.freepik.com/free-vector/people-communicating-via-social-media_74855-5551.jpg?w=1380&t=st=1689353990~exp=1689354590~hmac=edcfe3de67fffd107397e7c08477edffbdd6fc2658e5dc9b3e4e4c16a993d07b" alt="">
 
                     @else
-                    <img id="previewImageForGroup" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$group[0]->image) }}" alt="">
+                    <img loading="lazy" id="previewImageForGroup" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.$group[0]->image) }}" alt="">
                     @endif
                 @endif
 
@@ -724,14 +724,14 @@
                             @if(Auth::user()->image == null)
 
                             @if(Auth::user()->gender == 'male')
-                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                             @else
-                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                             @endif
                             @else
-                            <img class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                             @endif
                         </a>
 
@@ -805,7 +805,7 @@
                 @enderror
 
                 <div class="rounded-xl flex justify-center shadow-lg overflow-hidden mt-3 ">
-                    <img class="max-w-[300px]" id="previewImageForPost" src="" alt="">
+                    <img loading="lazy" class="max-w-[300px]" id="previewImageForPost" src="" alt="">
                 </div>
             </div>
             <div class=" mt-3 md:mt-5 flex justify-between items-center">

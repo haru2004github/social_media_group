@@ -107,10 +107,10 @@
                     <a href="{{ route('group_chat#page') }}" class="unsetScrollTo dark:bg-[#27282f] dark:hover:bg-slate-700  dark:border-slate-700 dark:hover:border-blue-500 dark:text-slate-300 hover:bg-slate-100 hover:text-blue-500 duration-300 mt-5 2xl:mt-8 w-full border border-slate-300 rounded-2xl text-slate-700 shadow-md px-3 py-1 md:py-2 2xl:px-5 2xl:py-3 flex items-center  2xl:gap-x-4 gap-x-2 ">
                         <div class="2xl:w-12 w-7 md:w-9 2xl:h-12 h-7 md:h-9 overflow-hidden rounded-full shadow-md ms-2 2xl:ms-0">
                             @if($groupPhoto->image == null)
-                            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('img/default-group-photo.jpg') }}" alt="">
+                            <img loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('img/default-group-photo.jpg') }}" alt="">
 
                             @else
-                            <img class="h-full object-center object-cover" src="{{ asset('storage/'.$groupPhoto->image) }}">
+                            <img loading="lazy" class="h-full object-center object-cover" src="{{ asset('storage/'.$groupPhoto->image) }}">
                             @endif
                         </div>
                         <h1 class="xl:text-lg md:text-md text-sm ">Group Chat</h1>
@@ -168,14 +168,14 @@
                             @if(Auth::user()->image == null)
 
                             @if(Auth::user()->gender == 'male')
-                            <img src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                            <img loading="lazy" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                             @else
-                            <img src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                            <img loading="lazy" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                             @endif
                             @else
-                            <img src="{{ asset('storage/'.Auth::user()->image) }}" alt="User Profile">
+                            <img loading="lazy" src="{{ asset('storage/'.Auth::user()->image) }}" alt="User Profile">
                             @endif
                         </div>
                        </div>
@@ -223,13 +223,13 @@
                                         <div class="lg:w-14 lg:h-14 w-10 h-10 overflow-hidden rounded-full shadow-md">
                                             @if($user->image == null)
                                             @if($user->gender == 'male')
-                                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                             @else
-                                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                             @endif
                                             @else
-                                            <img class="w-full" src="{{ asset('storage/'.$user->image) }}">
+                                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.$user->image) }}">
                                             @endif
                                         </div>
                                         <div class="">
@@ -305,14 +305,14 @@
                                     @if($admin->image == null)
 
                                     @if($admin->gender == 'male')
-                                    <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                     @else
-                                    <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                     @endif
                                     @else
-                                    <img class="w-full" src="{{ asset('storage/'.$admin->image) }}">
+                                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$admin->image) }}">
                                     @endif
                                 </a>
                             </div>
@@ -345,14 +345,14 @@
                                     @if($member->image == null)
 
                                     @if($member->gender == 'male')
-                                    <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                     @else
-                                    <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                    <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                     @endif
                                     @else
-                                    <img class="w-full" src="{{ asset('storage/'.$member->image) }}">
+                                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$member->image) }}">
                                     @endif
                                 </a>
                             </div>

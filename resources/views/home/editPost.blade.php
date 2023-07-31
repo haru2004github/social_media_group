@@ -25,28 +25,28 @@
                 <div class="flex justify-between items-center">
                     <div class="flex items-center gap-x-3 2xl:gap-x-5 2xl:mt-5">
                         <div class="">
-                            <a  href="{{ route('account#profilePage') }}" class="flex justify-center items-center lg:w-14 lg:h-14 w-12 h-12 overflow-hidden rounded-full shadow-xl">
+                            <a  href="{{ route('account#profilePage') }}" class="flex justify-center items-center w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 overflow-hidden rounded-full shadow-xl">
                                 @if($owner['userImage'] == null)
 
                                 @if($owner['userGender'] == 'male')
-                                <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                                 @else
-                                <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                                 @endif
                                 @else
-                                <img class="w-full" src="{{ asset('storage/'.$owner['userImage']) }}">
+                                <img loading="lazy" class="w-full" src="{{ asset('storage/'.$owner['userImage']) }}">
                                 @endif
                             </a>
                         </div>
                         <div class="">
                             <div class="flex items-center gap-x-1">
-                                <a href="{{ route('member#accountProfilePage',$post->user_id) }}" class="text-slate-700 font-semibold dark:text-slate-200 text-md 2xl:text-lg">
+                                <a href="{{ route('member#accountProfilePage',$post->user_id) }}" class="text-slate-700 font-semibold dark:text-slate-200 text-sm md:text-md 2xl:text-lg">
                                     {{ $owner['userName'] }}
                                 </a>
                             </div>
-                            <h2 class="text-sm 2xl:text-md dark:text-slate-400">
+                            <h2 class="text-xs md:text-sm 2xl:text-md dark:text-slate-400">
                                 {{ $owner['userAddress'] }}
                             </h2>
                         </div>
@@ -71,7 +71,7 @@
                 @endif
 
                 @if ($post->title)
-                <div class="text-slate-500 mt-10 dark:text-slate-300 text-xl 2xl:mt-5   @if ($post->image !== null) pb-5 @endif">
+                <div class="text-slate-500 mt-5 md:mt-10 dark:text-slate-300 text-xl 2xl:mt-5   @if ($post->image !== null) pb-5 @endif">
                     <label for="title" class="text-slate-700 dark:text-slate-300 text-sm ml-2">Post Title</label><br>
                     <input type="text" class="w-full focus:outline-none bg-transparent text-slate-700 rounded-lg border dark:border-slate-700 shadow-sm px-3 py-1 text-sm 2xl:text-lg dark:text-slate-300" name="title" placeholder="Enter title..." id="title" value="{{ $post->title }}">
                     @if (session('titleMessage'))
@@ -100,11 +100,11 @@
                 @endif
                 @if ($post->image !== null)
                 <div class="mt-5 overflow-hidden rounded-lg flex justify-center items-center">
-                    <img id="previewImage" class="max-w-[350px]" src="{{ asset('storage/'.$post->image) }}" alt="">
+                    <img loading="lazy" id="previewImage" class="max-w-[350px]" src="{{ asset('storage/'.$post->image) }}" alt="">
                 </div>
                 @else
                 <div class=" mt-5 overflow-hidden rounded-lg flex justify-center items-center">
-                    <img id="previewImage" class="max-w-[350px]" src="" alt="">
+                    <img loading="lazy" id="previewImage" class="max-w-[350px]" src="" alt="">
                 </div>
 
                 @endif
@@ -126,7 +126,7 @@
                         <input onchange="previewFile()" id="file" type="file"  class="hidden" name="image" accept="image/*">
 
                     </button>
-                    <button type="submit" class="px-3 py-2 md:py-1 lg:py-2 2xl:px-5 text-white 2xl:py-2 text-sm lg:text-md 2xl:text-lg rounded-lg shadow-md bg-blue-500 hover:bg-blue-600 duration-300 text-center">
+                    <button type="submit" class="px-3 py-2 md:py-1 lg:py-2 2xl:px-5 text-white 2xl:py-2 text-xs md:text-sm lg:text-md 2xl:text-lg rounded-lg shadow-md bg-blue-500 hover:bg-blue-600 duration-300 text-center">
                         Update
                     </button>
                 </div>

@@ -26,14 +26,14 @@
                         @if(Auth::user()->image == null)
 
                         @if(Auth::user()->gender == 'male')
-                        <img class="object-center object-cover h-full w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                        <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                         @else
-                        <img class="object-center object-cover h-full w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                        <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                         @endif
                         @else
-                        <img class="object-center object-cover h-full w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
+                        <img  loading="lazy" class="object-center object-cover h-full w-full" src="{{ asset('storage/'.Auth::user()->image) }}">
                         @endif
                     </div>
 
@@ -138,9 +138,9 @@
 
         <div class="overflow-hidden w-full h-full md:w-auto min-h-[150px] 2xl:h-[400px] 2xl:min-h-[300px] 2xl:max-h-[400px] object-center max-h-[250px] dark:bg-slate-800 bg-slate-100 relative shadow-sm">
             @if (Auth::user()->cover_image !== null)
-            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.Auth::user()->cover_image) }}" alt="">
+            <img  loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="{{ asset('storage/'.Auth::user()->cover_image) }}" alt="">
             @else
-            <img class="object-center object-cover h-full w-full brightness-80 z-0" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
+            <img  loading="lazy" class="object-center object-cover h-full w-full brightness-80 z-0" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
             @endif
             <button onclick="toggleDisplayForCover()" class="absolute bg-blue-500/90 text-white hover:bg-blue-500 duration-300 bottom-5 right-5 px-3 2xl:px-5 py-1 md:py-2 text-xs md:text-sm border shadow-lg rounded-lg flex items-center gap-x-1">
                 @if (Auth::user()->cover_image == null)
@@ -182,9 +182,9 @@
             </div>
             <div class="rounded-xl shadow-lg overflow-hidden mt-5 border border-blue-500/50 ">
                 @if(Auth::user()->cover_image !== null)
-                <img class="object-center object-cover h-full w-full" id="previewImageForCover" src="{{ asset('storage/'.Auth::user()->cover_image) }}" alt="">
+                <img  loading="lazy" class="object-center object-cover h-full w-full" id="previewImageForCover" src="{{ asset('storage/'.Auth::user()->cover_image) }}" alt="">
                 @else
-                <img class="object-center object-cover h-full w-full" id="previewImageForCover" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
+                <img  loading="lazy" class="object-center object-cover h-full w-full" id="previewImageForCover" src="https://i.pinimg.com/564x/4e/48/63/4e4863b199e1d6f13cc1f07671db78d7.jpg" alt="">
                 @endif
             </div>
         </div>
@@ -236,12 +236,12 @@
             </div>
             <div class="rounded-xl flex justify-center shadow-lg overflow-hidden mt-5 md:mt-3">
                 @if(Auth::user()->image !== null)
-                <img class="object-center object-cover h-full w-full" id="previewImageForProfile" src="{{ asset('storage/'.Auth::user()->image) }}" alt="">
+                <img  loading="lazy" class="object-center object-cover h-full w-full" id="previewImageForProfile" src="{{ asset('storage/'.Auth::user()->image) }}" alt="">
                 @else
                      @if(Auth::user()->gender == 'male')
-                     <img class="object-center object-cover h-full w-full" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                     <img  loading="lazy" class="object-center object-cover h-full w-full" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                      @else
-                     <img class="object-center object-cover h-full w-full"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                     <img  loading="lazy" class="object-center object-cover h-full w-full"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                      @endif
                 @endif
             </div>

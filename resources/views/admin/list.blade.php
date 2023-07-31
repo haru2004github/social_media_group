@@ -66,12 +66,12 @@
                                     href="{{ route('member#accountProfilePage',$admin->id) }}"
                                 @endif class="flex justify-center items-center w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 cursor-pointer overflow-hidden rounded-full shadow-xl">
                                     @if($admin->image !== null)
-                                    <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$admin->image) }}" alt="">
+                                    <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$admin->image) }}" alt="">
                                     @else
                                         @if($admin->gender == 'male')
-                                        <img id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                        <img loading="lazy" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                         @else
-                                        <img  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                        <img loading="lazy"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                         @endif
                                     @endif
                                 </a>
@@ -84,10 +84,14 @@
                                     @endif class="text-slate-700 ml-1 dark:text-slate-200 text-xs md:text-md 2xl:text-lg">
                                     {{ $admin->name }}
                                 </a>
-                                <h2 class="text-slate-500 dark:text-slate-400 text-xs ml-1 md:text-sm flex items-center gap-x-1 ">
+                                <a  @if (Auth::user()->id == $admin->id)
+                                    href="{{ route('account#profilePage',$admin->id) }}"
+                                    @else
+                                        href="{{ route('member#accountProfilePage',$admin->id) }}"
+                                    @endif class="text-slate-500 dark:text-slate-400 text-xs ml-1 md:text-sm flex items-center gap-x-1 ">
                                     <svg class="hidden md:inline text-red-400 w-4 h-4 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z"/></svg>
                                     {{ $admin->address }}
-                                </h2>
+                                </a>
                             </div>
                         </div>
                         <div class="parentNode flex items-center gap-x-4 md:gap-x-6">
@@ -101,7 +105,11 @@
                                         <svg class="w-4 h-4 md:w-5 md:h-5 2xl:w-6 2xl:h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path stroke-linejoin="round" d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="7" r="3"/></g></svg>
                                     </a>
                                 @else
-                                    <a  href="{{ route('member#accountProfilePage',$admin->id) }}"  class=" text-white bg-blue-400 hover:bg-blue-500 duration-300 lg:mr-3 text-xs md:text-sm px-2 md:px-3 py-1 md:py-2 rounded-lg flex justify-center items-center shadow-md" title="Profile">
+                                    <a  @if (Auth::user()->id == $admin->id)
+                                        href="{{ route('account#profilePage',Auth::user()->id) }}"
+                                    @else
+                                        href="{{ route('member#accountProfilePage',$admin->id) }}"
+                                    @endif   class=" text-white bg-blue-400 hover:bg-blue-500 duration-300 lg:mr-3 text-xs md:text-sm px-2 md:px-3 py-1 md:py-2 rounded-lg shadow-md" title="Profile">
                                         View Your Profile
                                     </a>
                                 @endif
@@ -158,12 +166,12 @@
                                         href="{{ route('member#accountProfilePage',$admin->id) }}"
                                     @endif class="w-20 md:w-24 2xl:w-32 h-20 md:h-24 2xl:h-32 border-4 border-[#f6f8fc] dark:border-slate-500 cursor-pointer  overflow-hidden rounded-full shadow-md">
                                     @if($admin->image !== null)
-                                    <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$admin->image) }}" alt="">
+                                    <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$admin->image) }}" alt="">
                                     @else
                                         @if($admin->gender == 'male')
-                                        <img id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                        <img loading="lazy" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                         @else
-                                        <img  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                        <img loading="lazy"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                         @endif
                                     @endif
                                 </a>

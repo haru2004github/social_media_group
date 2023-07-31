@@ -48,15 +48,15 @@
                         <div class="">
                             <a href="{{ route('post#detail',$post->post_id) }}" class="w-[100px] h-[100px] md:w-[150px] md:h-[150px] 2xl:w-[200px] 2xl:h-[200px] inline-block cursor-pointer overflow-hidden rounded-lg shadow-xl">
                                 @if($post->post_image != null)
-                                <img class="w-full h-full object-cover object-center" src="{{ asset('storage/'.$post->post_image) }}" alt="">
+                                <img loading="lazy" class="w-full h-full object-cover object-center" src="{{ asset('storage/'.$post->post_image) }}" alt="">
                                 @else
                                 @if ($post->post_owner_image != null)
-                                <img class="w-full h-full object-cover object-center" src="{{ asset('storage/'.$post->post_owner_image) }}" alt="">
+                                <img loading="lazy" class="w-full h-full object-cover object-center" src="{{ asset('storage/'.$post->post_owner_image) }}" alt="">
                                 @else
                                     @if ($post->post_owner_gender == 'male')
-                                    <img class="w-full h-full object-cover object-center" src="{{ asset('img/noUserBoy.jpg') }}" alt="">
+                                    <img loading="lazy" class="w-full h-full object-cover object-center" src="{{ asset('img/noUserBoy.jpg') }}" alt="">
                                     @else
-                                    <img class="w-full h-full object-cover object-center" src="{{ asset('img/nouser(girl).jpg') }}" alt="">
+                                    <img loading="lazy" class="w-full h-full object-cover object-center" src="{{ asset('img/nouser(girl).jpg') }}" alt="">
                                     @endif
                                 @endif
 
@@ -70,12 +70,12 @@
                             <div class="mt-3 2xl:mt-5 text-slate-500 dark:text-slate-400 text-xs ml-1 md:text-sm flex items-center gap-x-1 ">
                                 <a href="{{ route('member#accountProfilePage',$post->post_owner_id) }}" class="w-8  h-8 rounded-full overflow-hidden">
                                     @if ($post->post_owner_image != null)
-                                    <img src="{{ asset('storage/'.$post->post_owner_image) }}" alt="">
+                                    <img loading="lazy" src="{{ asset('storage/'.$post->post_owner_image) }}" alt="">
                                     @else
                                         @if ($post->user_gender == 'male')
-                                        <img src="{{ asset('img/noUserBoy.jpg') }}" alt="">
+                                        <img loading="lazy" src="{{ asset('img/noUserBoy.jpg') }}" alt="">
                                         @else
-                                        <img src="{{ asset('img/nouser(girl).jpg') }}" alt="">
+                                        <img loading="lazy" src="{{ asset('img/nouser(girl).jpg') }}" alt="">
                                         @endif
                                     @endif
                                 </a>
@@ -91,7 +91,7 @@
 
                                 <div class="flex items-center gap-x-2">
                                     <button  title="Unsaved Post" type="submit" class=" text-white bg-red-400 hover:bg-red-500 duration-300 rounded-full md:rounded-lg text-sm w-7 h-7 md:w-auto md:h-auto flex justify-center items-center  2xl:text-md md:px-2 md:py-1 2xl:px-4 2xl:py-2 shadow-md gap-x-1">
-                                        <svg class="w-4 h-4 md:w-5 md:h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="M8.657 3H16a2 2 0 0 1 2 2v7.343M6 6v15l6-3l6 --3v-3"/><path d="m4 4l16 16"/></g></svg>
+                                        <svg class="w-4 h-4 md:w-5 md:h-5"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="M8.657 3H16a2 2 0 0 1 2 2v7.343M6 6v15l6-3l6 3v-3"/><path d="m4 4l16 16"/></g></svg>
                                         <span class="hidden md:inline">Unsave</span>
                                     </button>
                                     @if (Auth::user()->id != $post->post_owner_id)

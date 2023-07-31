@@ -19,7 +19,7 @@
 
 
         <!-- user list -->
-        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[700px] md:h-[500px] max-h-[700px] md:max-h-none
+        <div id="rowDisplay" class="bg-[#f6f8fc] dark:bg-[#1E1F23] h-[550px] md:h-[500px] max-h-[700px] md:max-h-none
         2xl:h-[700px] overflow-y-scroll p-3 md:p-10 flex flex-col gap-y-3 md:gap-y-5">
 
             @if (count($viewers) == 0 )
@@ -31,26 +31,38 @@
                 <div class="shadow-lg dark:shadow-slate-900 p-3 border border-blue-300/50 dark:border-slate-700 rounded-xl justify-between flex gap-x-3 items-center">
                     <div class="flex gap-x-1 md:gap-x-2 items-center">
                         <div class="">
-                            <div class="md:w-16 w-12 h-12 cursor-pointer md:h-16 overflow-hidden rounded-full shadow-xl">
+                            <a @if (Auth::user()->id == $viewer->user_id)
+                                href="{{ route('account#profilePage',Auth::user()->id) }}"
+                            @else
+                                href="{{ route('member#accountProfilePage',$viewer->user_id) }}"
+                            @endif class="flex justify-center items-center w-9 lg:w-12 2xl:w-16 h-9 lg:h-12 2xl:h-16 cursor-pointer overflow-hidden rounded-full shadow-xl">
                                 @if($viewer->user_image !== null)
-                                <img class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$viewer->user_image) }}" alt="">
+                                <img loading="lazy" class="w-full" id="previewImageForProfile" src="{{ asset('storage/'.$viewer->user_image) }}" alt="">
                                 @else
                                      @if($viewer->user_gender == 'male')
-                                     <img id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                                     <img loading="lazy" id="previewImageForProfile" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
                                      @else
-                                     <img  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                                     <img loading="lazy"  id="previewImageForProfile"src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
                                      @endif
                                 @endif
-                            </div>
+                            </a>
                         </div>
                         <div class="">
-                            <h1 class="text-slate-700 ml-1 dark:text-slate-200 text-xs md:text-md">
+                            <a @if (Auth::user()->id == $viewer->user_id)
+                                href="{{ route('account#profilePage',Auth::user()->id) }}"
+                            @else
+                                href="{{ route('member#accountProfilePage',$viewer->user_id) }}"
+                            @endif class="text-slate-700 ml-1 dark:text-slate-200 text-xs md:text-md">
                                 {{ $viewer->user_name }}
-                            </h1>
-                            <h2 class="text-slate-500 dark:text-slate-400 text-xs ml-1 md:text-sm flex items-center gap-x-1 ">
+                            </a>
+                            <a @if (Auth::user()->id == $viewer->user_id)
+                                href="{{ route('account#profilePage',Auth::user()->id) }}"
+                            @else
+                                href="{{ route('member#accountProfilePage',$viewer->user_id) }}"
+                            @endif class="text-slate-500 dark:text-slate-400 text-xs ml-1 md:text-sm flex items-center gap-x-1 ">
                                 <svg class="hidden md:inline text-red-400 w-4 h-4 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5z"/></svg>
                                 {{ $viewer->user_address }}
-                            </h2>
+                            </a>
                         </div>
                     </div>
                     <div class="flex items-center gap-x-4 md:gap-x-6">
@@ -73,7 +85,7 @@
 
                             {{-- User ROle  --}}
                             @if (Auth::user()->id != $viewer->user_id)
-                                <div class=" bg-blue-400 text-white px-2 md:px-5 py-2 rounded-xl shadow-lg md:text-sm text-xs">
+                                <div class=" bg-blue-400 text-white p-1 px-2 md:px-5 md:py-2 rounded-lg md:rounded-xl shadow-lg md:text-sm text-xs">
                                     @if ($viewer->user_role == 'admin')
                                     Admin
                                     @else
@@ -90,8 +102,6 @@
 
             @endforeach
             @endif
-
-
         </div>
         <!--  -->
         </div>
@@ -104,8 +114,3 @@
 
 @endsection
 
-
-@section('script')
-<script src="{{ asset('js/user.js') }}"></script>
-
-@endsection

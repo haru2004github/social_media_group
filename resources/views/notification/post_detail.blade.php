@@ -22,14 +22,14 @@
                             @if($owner['userImage'] == null)
 
                             @if($owner['userGender'] == 'male')
-                            <img class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
+                            <img loading="lazy" class="w-full" src="{{ asset('img/noUserBoy.jpg') }}" alt="No Uer Profile">
 
                             @else
-                            <img class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
+                            <img loading="lazy" class="w-full" src="{{ asset('img/nouser(girl).jpg') }}" alt="No User Profile">
 
                             @endif
                             @else
-                            <img class="w-full" src="{{ asset('storage/'.$owner['userImage']) }}">
+                            <img loading="lazy" class="w-full" src="{{ asset('storage/'.$owner['userImage']) }}">
                             @endif
                         </a>
                         <div class="">
@@ -90,7 +90,7 @@
                 @endif
                 @if ($post->image !== null)
                 <div class="2xl:mt-8 mt-5 overflow-hidden rounded-xl shadow-lg">
-                    <img class="w-full" src="{{ asset('storage/'.$post->image) }}" alt="">
+                    <img loading="lazy" class="w-full" src="{{ asset('storage/'.$post->image) }}" alt="">
                 </div>
                 @endif
 
